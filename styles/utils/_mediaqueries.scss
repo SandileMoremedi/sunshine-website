@@ -1,0 +1,30 @@
+@media (min-width: 0px) {
+  .navbar {
+    display: flex;
+  }
+  nav ul {
+    display: none !important;
+  }
+}
+@media (min-width: 480px) {
+  .navbar {
+    display: flex;
+  }
+  nav ul {
+    display: none !important;
+  }
+}
+@media (min-width: 770px) {
+  .navbar {
+    display: none !important;
+  }
+  nav ul {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar {
+    display: none !important;
+  }
+}

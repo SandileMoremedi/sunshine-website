@@ -1,85 +1,48 @@
 export default {
-  name: 'product',
-  title: 'Product',
-  type: 'document',
+  name: "products",
+  title: "Products",
+  type: "document",
   fields: [
     {
-      name: 'title',
-      title: 'Title',
-      type: 'string',
+      name: "title",
+      title: "Title",
+      type: "string",
     },
     {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
+      title: "Slug",
+      name: "slug",
+      type: "slug",
       options: {
-        source: 'title',
-        maxLength: 96,
+        source: "title",
+        maxLength: 200,
+        slugify: (input) =>
+          input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
       },
     },
     {
-      title: 'Default variant',
-      name: 'defaultProductVariant',
-      type: 'productVariant',
-    },
-    {
-      title: 'Variants',
-      name: 'variants',
-      type: 'array',
-      of: [
-        {
-          title: 'Variant',
-          type: 'productVariant',
-        },
-      ],
-    },
-    {
-      title: 'Tags',
-      name: 'tags',
-      type: 'array',
-      of: [
-        {
-          type: 'string',
-        },
-      ],
+      name: "mainImage",
+      title: "Main Product Image",
+      type: "image",
       options: {
-        layout: 'tags',
+        hotspot: true,
       },
     },
     {
-      name: 'vendor',
-      title: 'Vendor',
-      type: 'reference',
-      to: {type: 'vendor'},
+      title: "Category",
+      name: "category",
+      type: "reference",
+      to: [{ type: "category" }],
     },
     {
-      name: 'blurb',
-      title: 'Blurb',
-      type: 'localeString',
+      title: "Text",
+      name: "text",
+      type: "array",
+      of: [{ type: "block" }],
     },
     {
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: {type: 'category'},
-        },
-      ],
-    },
-    {
-      name: 'body',
-      title: 'Body',
-      type: 'localeBlockContent',
+      name: "weight",
+      title: "Weight",
+      type: "number",
     },
   ],
-
-  preview: {
-    select: {
-      title: 'title',
-      manufactor: 'manufactor.title',
-      media: 'defaultProductVariant.images[0]',
-    },
-  },
-}
+};

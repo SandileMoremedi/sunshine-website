@@ -1,0 +1,44 @@
+{
+  "products": [
+    {
+      "title": "Brown Skateboard",
+      "price": 2000,
+      "slug": "brown-skateboard",
+      "weight": null,
+      "mainImage": "/skateboard.jpg",
+      "categories": ["fun", "entertainment"]
+    },
+    {
+      "title": "Brown Bar of Soap",
+      "price": 50,
+      "slug": "brown-bar-of-soap",
+      "weight": null,
+      "mainImage": "/barofsoap.jpg",
+      "categories": ["sanitary", "self-care"]
+    },
+    {
+      "title": "Beer",
+      "price": 300,
+      "slug": "beer",
+      "weight": "200g",
+      "mainImage": "/beer.jpg",
+      "categories": ["liquor", "entertainment"]
+    },
+    {
+      "title": "12 Small Eggs",
+      "price": 30,
+      "slug": "small-eggs",
+      "mainImage": "/eggs.jpg",
+      "weight": "300g",
+      "categories": ["dairy", "meat"]
+    },
+    {
+      "title": "Meat",
+      "price": 300,
+      "slug": "meat",
+      "mainImage": "/meat.jpg",
+      "weight": "1kg",
+      "categories": ["meat", "frozen items"]
+    }
+  ]
+}

@@ -1,4 +1,11 @@
 @import "./base/reset";
 @import "./base/typography";
 
+@import "./components/itemslayout";
+@import "./components/navbar";
+@import "./components/cards";
+
+@import "./layout/home";
+
 @import "./utils/variables";
+@import "./utils/mediaqueries";
