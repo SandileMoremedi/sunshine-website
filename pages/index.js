@@ -7,6 +7,7 @@ import { useUser } from "@auth0/nextjs-auth0";
 
 export default function Home({ data }) {
   const { user, error, isLoading } = useUser();
+  console.log(data);
   return (
     <>
       <Head>
@@ -31,24 +32,24 @@ export default function Home({ data }) {
     </>
   );
 }
-export const getStaticProps = async (context) => {
-  const req = await fetch("http://localhost:3030/products");
-  const data = await req.json();
-  return {
-    props: { data },
-  };
-};
-
-// export const getServerSideProps = async (context) => {
-//   const req = await sanityconfig.fetch(
-//     `
-//     *[_type == "products"]{_id, title, slug}
-//     `
-//   );
-
+// export const getStaticProps = async (context) => {
+//   const req = await fetch("http://localhost:3030/products");
+//   const data = await req.json();
 //   return {
-//     props: {
-//       req,
-//     },
+//     props: { data },
 //   };
 // };
+
+export const getServerSideProps = async () => {
+  const data = await sanityconfig.fetch(
+    `
+    *[_type == "products"]{_id, title, slug, "ProductImage": mainImage.asset->url}
+    `
+  );
+
+  return {
+    props: {
+      data,
+    },
+  };
+};

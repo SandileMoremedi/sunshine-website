@@ -32,7 +32,7 @@ const Header = () => {
         </ul>
         <div className="log">
           {user ? (
-            <Link href="/api/auth/login">Logout</Link>
+            <Link href="/api/auth/logout">Logout</Link>
           ) : (
             <Link href="/api/auth/login">Login</Link>
           )}
