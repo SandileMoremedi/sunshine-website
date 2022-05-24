@@ -31,7 +31,7 @@ export default function Home({ data }) {
 export const getServerSideProps = async () => {
   const data = await sanityconfig.fetch(
     `
-    *[_type == "products"]{_id, title, slug, "ProductImage": mainImage.asset->url}
+    *[_type == "products"]{_id, title, slug, "ProductImage": mainImage.asset->url, price, quantity}
     `
   );
   return {

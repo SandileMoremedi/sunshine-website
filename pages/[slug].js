@@ -1,6 +1,5 @@
 import Image from "next/image";
 import sanityconfig from "../sanityconfig";
-import { motion } from "framer-motion";
 
 const Product = ({ product }) => {
   console.log(product);
@@ -9,14 +8,14 @@ const Product = ({ product }) => {
       {product && (
         <>
           <h1>{product.title}</h1>
-          <motion.div layoutId={product.slug.current} className="image">
+          <div className="image">
             <Image
               src={product.productImage}
               width={300}
               height={300}
               alt="Product Photo"
             />
-          </motion.div>
+          </div>
         </>
       )}
     </div>
@@ -39,7 +38,7 @@ export async function getStaticProps(context) {
   const { slug = "" } = context.params;
   const product = await sanityconfig.fetch(
     `
-    *[_type == "products" && slug.current == $slug][0]{slug, "productImage": mainImage.asset->url, title}
+    *[_type == "products" && slug.current == $slug][0]{slug, "productImage": mainImage.asset->url, title, price, quantity}
   `,
     { slug }
   );

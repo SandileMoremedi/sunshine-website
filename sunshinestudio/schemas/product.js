@@ -41,7 +41,17 @@ export default {
     },
     {
       name: "weight",
-      title: "Weight",
+      title: "Weight in KG",
+      type: "number",
+    },
+    {
+      name: "price",
+      title: "Product Price in Rands",
+      type: "number",
+    },
+    {
+      name: "quantity",
+      title: "Quantity of Products",
       type: "number",
     },
   ],
