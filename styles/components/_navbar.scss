@@ -1,42 +1,47 @@
 @import "../utils/variables";
 
-.header nav {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  span a {
-    color: $Soft-Brown;
-    text-decoration: none;
-  }
-  .log a {
-    color: $Soft-Brown;
-    text-decoration: none;
-  }
-  .navbar {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    .bar {
-      background-color: $Soft-Brown;
-      width: 30px;
-      height: 6px;
-    }
-  }
-  ul {
+.header {
+  nav {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0;
-    li {
-      list-style: none;
-      a {
-        text-decoration: none;
-        padding: 20px;
-        color: $Soft-Brown;
-        &:hover {
-          text-decoration: underline;
+    justify-content: space-between;
+    padding: 0 20px;
+    .nav__linksAndButtons {
+      z-index: 9999;
+    }
+    span a {
+      color: $Soft-Brown;
+      text-decoration: none;
+    }
+    .log a {
+      color: $Soft-Brown;
+      text-decoration: none;
+    }
+    .navbar {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      .bar {
+        background-color: $Soft-Brown;
+        width: 30px;
+        height: 6px;
+      }
+    }
+    ul {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0;
+      li {
+        list-style: none;
+        a {
+          text-decoration: none;
+          padding: 20px;
+          color: $Soft-Brown;
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }

@@ -7,7 +7,6 @@ import { useUser } from "@auth0/nextjs-auth0";
 
 export default function Home({ data }) {
   const { user, error, isLoading } = useUser();
-  console.log(data);
   return (
     <>
       <Head>
@@ -24,21 +23,12 @@ export default function Home({ data }) {
             data.map((card, index) => <CustomImage data={card} key={index} />)}
         </div>
         {user && (
-          <>
             <h2>{user.name}</h2>
-          </>
         )}
       </div>
     </>
   );
 }
-// export const getStaticProps = async (context) => {
-//   const req = await fetch("http://localhost:3030/products");
-//   const data = await req.json();
-//   return {
-//     props: { data },
-//   };
-// };
 
 export const getServerSideProps = async () => {
   const data = await sanityconfig.fetch(
@@ -46,7 +36,6 @@ export const getServerSideProps = async () => {
     *[_type == "products"]{_id, title, slug, "ProductImage": mainImage.asset->url}
     `
   );
-
   return {
     props: {
       data,

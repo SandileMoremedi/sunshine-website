@@ -3,4 +3,16 @@ body {
   background-color: $Dark-Blue;
   color: $Soft-Brown;
   font-size: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#__next,
+body {
+  width: 100vw;
+  overflow-x: hidden;
 }
