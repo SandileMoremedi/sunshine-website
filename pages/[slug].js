@@ -1,19 +1,24 @@
 import Image from "next/image";
-import sanityconfig from "../sunshinestudio/sanityconfig";
+import sanityconfig from "../sanityconfig";
 import { motion } from "framer-motion";
 
 const Product = ({ product }) => {
+  console.log(product);
   return (
     <div className="product">
-      <h1>{product.title}</h1>
-      <motion.div layoutId={product.slug.current} className="image">
-        <Image
-          src={product.productImage}
-          width={300}
-          height={300}
-          alt="Product Photo"
-        />
-      </motion.div>
+      {product && (
+        <>
+          <h1>{product.title}</h1>
+          <motion.div layoutId={product.slug.current} className="image">
+            <Image
+              src={product.productImage}
+              width={300}
+              height={300}
+              alt="Product Photo"
+            />
+          </motion.div>
+        </>
+      )}
     </div>
   );
 };

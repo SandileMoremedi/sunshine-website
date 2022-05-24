@@ -2,7 +2,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import CustomImage from "../components/CustomImage";
-import sanityconfig from "../sunshinestudio/sanityconfig";
+import sanityconfig from "../sanityconfig";
 import { useUser } from "@auth0/nextjs-auth0";
 
 export default function Home({ data }) {
@@ -22,9 +22,7 @@ export default function Home({ data }) {
           {data &&
             data.map((card, index) => <CustomImage data={card} key={index} />)}
         </div>
-        {user && (
-            <h2>{user.name}</h2>
-        )}
+        {user && <h2>{user.name}</h2>}
       </div>
     </>
   );
