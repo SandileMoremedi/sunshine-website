@@ -40,10 +40,61 @@
           padding: 20px;
           color: $Soft-Brown;
           &:hover {
-            text-decoration: underline;
+            border-bottom: 1px solid $Mustard;
+          }
+          &:active {
+            border: 1px solid $Custom-Red;
           }
         }
       }
     }
+  }
+}
+
+// Making the dropdown menu for categories
+header .ul__categories {
+  display: flex;
+  position: relative;
+  align-items: center;
+
+  &:hover {
+    .ul__categories__links {
+      display: grid;
+    }
+  }
+
+  .ul__categories__links {
+    display: none;
+    grid-template-columns: repeat(5, 1fr);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $Custom-Red;
+    margin-top: 65px;
+
+    a {
+      color: $Soft-Brown;
+    }
+  }
+}
+
+// Making the red dot for the checkout page
+header {
+  .ul {
+    position: relative;
+  }
+  .ul__checkout::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: $Custom-Red;
+    border-radius: 50%;
+  }
+  .ul__link {
+    position: relative;
   }
 }

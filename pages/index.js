@@ -10,7 +10,7 @@ export default function Home({ data }) {
   return (
     <>
       <Head>
-        <title>Sunshine Cash Carry Online</title>
+        <title>Sunshine Cash & Carry | Home</title>
         <meta
           name="description"
           content="This is the official e-commerce website"
@@ -27,7 +27,6 @@ export default function Home({ data }) {
     </>
   );
 }
-
 export const getServerSideProps = async () => {
   const data = await sanityconfig.fetch(
     `

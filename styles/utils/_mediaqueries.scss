@@ -1,4 +1,6 @@
 @import "../utils/variables";
+
+// Making the navigation responsive
 @media (min-width: 0) and (max-width: 699px) {
   .nav {
     position: relative;
@@ -82,7 +84,7 @@
       flex: 1;
     }
     .nav__linksAndButtons {
-      flex: 2;
+      flex: 3;
     }
     .navbar {
       display: none !important;
@@ -92,16 +94,42 @@
       flex-direction: row !important;
       align-items: center;
       justify-content: space-between;
+      margin-right: 10px;
     }
   }
 }
 
+// Making the cards responsive
 @media (min-width: 0) and (max-width: 500px) {
   .cards {
     width: 100%;
     grid-template-columns: 1fr !important;
     .card {
       margin: 0 30px;
+    }
+  }
+}
+
+// Making the product page responsive
+@media (min-width: 0) and (max-width: 700px) {
+  .product {
+    span {
+      margin: 20px 0;
+    }
+
+    .headings {
+      display: flex;
+      flex-direction: column !important;
+      .headings__buttons {
+        display: flex;
+        flex-direction: column !important;
+
+        a {
+          width: 100%;
+          margin: 10px auto;
+          text-align: center;
+        }
+      }
     }
   }
 }

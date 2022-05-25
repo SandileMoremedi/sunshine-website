@@ -30,14 +30,37 @@ const Header = () => {
             <li>
               <Link href="/">Home</Link>
             </li>
+            <li className="ul__categories">
+              <Link href="/categories">Categories</Link>
+              <div className="ul__categories__links">
+                <Link href="/categories/dairy">Fruit & Veg</Link>
+                <Link href="/categories/dairy">Bakery</Link>
+                <Link href="/categories/dairy">Milk, Dairy & Eggs</Link>
+                <Link href="/categories/dairy">Meat, Poultry & Seafood</Link>
+                <Link href="/categories/dairy">Ready Meals, Deserts</Link>
+                <Link href="/categories/dairy">Frozen Food</Link>
+                <Link href="/categories/dairy">Chocolate, Chips & Snacks</Link>
+                <Link href="/categories/dairy">Beverages</Link>
+                <Link href="/categories/dairy">Alcohol</Link>
+                <Link href="/categories/dairy">Household & Cleaning</Link>
+                <Link href="/categories/dairy">Personal Care & Health</Link>
+                <Link href="/categories/dairy">Baby</Link>
+                <Link href="/categories/dairy">Pet Care</Link>
+                <Link href="/categories/dairy">Home & Appliances</Link>
+              </div>
+            </li>
             <li>
               <Link href="/about">About</Link>
             </li>
-            <li>
-              <Link href="/categories">Categories</Link>
+            <li className="ul__link">
+              <span className="ul__checkout">
+                <Link href="/checkout" className="ul__checkout">
+                  Checkout
+                </Link>
+              </span>
             </li>
             <li>
-              <Link href="/checkout">Checkout</Link>
+              <Link href="/contact">Contact</Link>
             </li>
           </ul>
           <div className="log">

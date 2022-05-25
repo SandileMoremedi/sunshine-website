@@ -1,0 +1,44 @@
+@import "../utils/variables";
+
+.contact {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 30px;
+
+  h1 {
+    text-align: center;
+  }
+
+  .contact__form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid $Soft-Brown;
+    border-radius: 20px;
+
+    .contact__form__labels {
+      font-size: 1.5rem;
+      margin-top: 15px;
+    }
+
+    .contact__form__inputs {
+      padding: 10px;
+      font-size: 1.2rem;
+      border-radius: 20px;
+      border: 1px solid $Soft-Brown;
+      cursor: pointer $Dark-Blue;
+      color: $Dark-Blue;
+    }
+
+    .contact__form__submit {
+      padding: 20px;
+      margin: 20px 0;
+      font-size: 1.4rem;
+      background-color: $Custom-Red;
+      color: $Soft-Brown;
+      border: none;
+    }
+  }
+}
