@@ -57,18 +57,13 @@ header .ul__categories {
   position: relative;
   align-items: center;
 
-  &:hover {
-    .ul__categories__links {
-      display: grid;
-    }
-  }
-
   .ul__categories__links {
     display: none;
     grid-template-columns: repeat(5, 1fr);
     position: absolute;
     top: 0;
-    left: 0;
+    max-width: 95vw;
+    left: -150px;
     background-color: $Custom-Red;
     margin-top: 65px;
 
@@ -79,22 +74,21 @@ header .ul__categories {
 }
 
 // Making the red dot for the checkout page
-header {
-  .ul {
-    position: relative;
-  }
-  .ul__checkout::before {
-    content: " ";
+header .ul__link {
+  position: relative;
+
+  .ul__checkout__icon {
     position: absolute;
-    top: 0;
     right: 0;
-    display: block;
-    width: 10px;
-    height: 10px;
-    background-color: $Custom-Red;
+    top: -5px;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
     border-radius: 50%;
-  }
-  .ul__link {
-    position: relative;
+    padding: 2px;
+    background-color: $Custom-Red;
   }
 }

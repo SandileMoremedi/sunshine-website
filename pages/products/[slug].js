@@ -1,5 +1,5 @@
 import Image from "next/image";
-import sanityconfig from "../sanityconfig";
+import sanityconfig from "../../sanityconfig";
 import Link from "next/link";
 
 const Product = ({ product }) => {
@@ -9,7 +9,6 @@ const Product = ({ product }) => {
         <>
           <div className="headings">
             <h1>{product.title}</h1>
-            <h1>Product</h1>
             <div className="headings__buttons">
               <Link href="/cart">Add to card</Link>
               <Link href="/add">Add and Checkout</Link>

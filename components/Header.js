@@ -1,10 +1,14 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useUser } from "@auth0/nextjs-auth0";
+import { ProductsContext } from "./ProductsProvider";
+import { useContext } from "react";
 
 const Header = () => {
   const [navbar, setNavbar] = useState(false);
   const { user, error, isLoading } = useUser();
+  const { state } = useContext(ProductsContext);
+
   return (
     <header className="header">
       <nav className="nav">
@@ -53,11 +57,12 @@ const Header = () => {
               <Link href="/about">About</Link>
             </li>
             <li className="ul__link">
-              <span className="ul__checkout">
-                <Link href="/checkout" className="ul__checkout">
-                  Checkout
-                </Link>
-              </span>
+              <Link href="/checkout" className="ul__checkout">
+                Checkout
+              </Link>
+              {state.products !== 0 && (
+                <span className="ul__checkout__icon">{state.products}</span>
+              )}
             </li>
             <li>
               <Link href="/contact">Contact</Link>

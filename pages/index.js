@@ -4,16 +4,20 @@ import Image from "next/image";
 import CustomImage from "../components/CustomImage";
 import sanityconfig from "../sanityconfig";
 import { useUser } from "@auth0/nextjs-auth0";
+import { useState, useContext } from "react";
+import { ProductsContext } from "../components/ProductsProvider";
 
 export default function Home({ data }) {
   const { user, error, isLoading } = useUser();
+  const [query, setQuery] = useState("");
+
   return (
     <>
       <Head>
         <title>Sunshine Cash & Carry | Home</title>
         <meta
           name="description"
-          content="This is the official e-commerce website"
+          content="This is the official e-commerce website of Sunshine Cash and Carry"
         />
       </Head>
       <div className="home">
