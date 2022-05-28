@@ -1,32 +1,19 @@
 import { createContext, useReducer } from "react";
-
 const initialValues = {
   products: 0,
   listItems: [],
+  authenticated: false,
 };
-
-// const reducer = (state, action) =>{
-//     const { type, payload} = action
-
-//     switch (type) {
-//         case value:
-
-//             break;
-
-//         default:
-//             break;
-//     }
-// }
 
 const ProductsContext = createContext(initialValues);
 
 const reducer = (state, action) => {
   const { type, payload } = action;
   switch (type) {
-    case "ADDED_A_PRODUCT":
+    case "ADDED_AN_ITEM_TO_CART":
       return {
-        ...state,
-        val: payload,
+        products: state.products + 1,
+        listItems: [...state.listItems, payload],
       };
       break;
 

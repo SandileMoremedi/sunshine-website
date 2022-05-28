@@ -112,10 +112,20 @@
 }
 
 // Making the cards responsive
-@media (min-width: 0) and (max-width: 500px) {
+@media (min-width: 0) and (max-width: 699px) {
   .cards {
     width: 100%;
     grid-template-columns: 1fr !important;
+    .card {
+      margin: 0 50px;
+    }
+  }
+}
+
+@media (min-width: 700px) and (max-width: 1200px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+
     .card {
       margin: 0 30px;
     }
