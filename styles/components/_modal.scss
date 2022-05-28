@@ -1,0 +1,31 @@
+@import "../utils/variables";
+
+.modal {
+  margin: 0 auto;
+  width: clamp(30%, 300px, 90vw);
+  background-color: $Custom-Red;
+  display: flex;
+  border-radius: 20px;
+  .modal__text {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    padding: 10px;
+    align-items: center;
+    .modal__text__icon {
+      margin: 0 10px;
+    }
+  }
+  .modal__text__close {
+    background-color: $Custom-Red;
+    border: none;
+    margin-left: 20px;
+    font-size: 1rem;
+    color: $Soft-Brown;
+    border-radius: 50%;
+    &:hover {
+      background-color: $Soft-Brown;
+      color: $Custom-Red;
+    }
+  }
+}

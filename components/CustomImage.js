@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ProductsContext } from "./ProductsProvider";
+
 const CustomImage = ({ data }) => {
   const { dispatch, state } = useContext(ProductsContext);
-  console.log(state);
+  const [modal, setModal] = useState(false);
   return (
     <div className="card">
       <div className="card__image">
@@ -35,11 +36,11 @@ const CustomImage = ({ data }) => {
         <Link
           href="/checkout"
           className="card__buttons__checkout"
-          onClick={() =>{
+          onClick={() => {
             dispatch({
-            type: "ADDED_AN_ITEM_TO_CART",
-            payload: data.slug.current,
-          })
+              type: "ADDED_AN_ITEM_TO_CART",
+              payload: data.slug.current,
+            });
           }}
         >
           Add and Checkout

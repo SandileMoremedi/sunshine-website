@@ -2,7 +2,7 @@ import { createContext, useReducer } from "react";
 const initialValues = {
   products: 0,
   listItems: [],
-  authenticated: false,
+  popup: false,
 };
 
 const ProductsContext = createContext(initialValues);
@@ -14,6 +14,13 @@ const reducer = (state, action) => {
       return {
         products: state.products + 1,
         listItems: [...state.listItems, payload],
+        popup: true,
+      };
+      break;
+    case "POPUP_CLOSE":
+      return {
+        ...state,
+        popup: false,
       };
       break;
 
