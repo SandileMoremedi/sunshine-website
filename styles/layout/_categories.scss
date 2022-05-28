@@ -1,0 +1,21 @@
+.categories {
+  overflow: scroll;
+  min-height: 100vh;
+  scrollbar-color: green;
+  max-width: 100vw;
+
+  h1 {
+    text-align: center;
+  }
+  .categories__ul {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+
+    li {
+      list-style: none;
+      padding: 20px;
+    }
+  }
+}

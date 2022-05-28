@@ -50,7 +50,6 @@ const Header = () => {
                 <Link href="/categories/dairy">Personal Care & Health</Link>
                 <Link href="/categories/dairy">Baby</Link>
                 <Link href="/categories/dairy">Pet Care</Link>
-                <Link href="/categories/dairy">Home & Appliances</Link>
               </div>
             </li>
             <li>
