@@ -35,10 +35,12 @@ const CustomImage = ({ data }) => {
         <Link
           href="/checkout"
           className="card__buttons__checkout"
-          // onClick={dispatch({
-          //   type: "ADDED_AN_ITEM_TO_CART",
-          //   payload: data.slug.current,
-          // })}
+          onClick={() =>{
+            dispatch({
+            type: "ADDED_AN_ITEM_TO_CART",
+            payload: data.slug.current,
+          })
+          }}
         >
           Add and Checkout
         </Link>
