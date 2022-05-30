@@ -17,7 +17,6 @@ const Product = ({ product }) => {
           <div className="image">
             <Image
               src={product.productImage}
-              // src="/eggs.jpg"
               layout="fill"
               objectFit="cover"
               alt="Product Photo"
@@ -25,7 +24,6 @@ const Product = ({ product }) => {
           </div>
           <div className="details">
             <span>{`Price: R${product.price}`}</span>
-            {/* <span className="details__price">Price: 200</span> */}
             <p className="info">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
               laboriosam ea facilis porro alias unde, eveniet quae ipsa ab!

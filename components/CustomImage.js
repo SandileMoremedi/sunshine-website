@@ -27,7 +27,13 @@ const CustomImage = ({ data }) => {
           onClick={() => {
             dispatch({
               type: "ADDED_AN_ITEM_TO_CART",
-              payload: data.slug.current,
+              payload: {
+                title: data.title,
+                slug: data.slug.current,
+                id: data._id,
+                image: data.ProductImage,
+                price: data.price,
+              },
             });
           }}
         >

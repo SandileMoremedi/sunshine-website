@@ -17,6 +17,22 @@ const reducer = (state, action) => {
         popup: true,
       };
       break;
+    case "REMOVED_AN_ITEM":
+      (state, payload) => {
+        let newArr = [...state.listItems];
+        let index = newArr.findIndex((element) => {
+          element.id === payload;
+        });
+        newArr.splice(index, 1);
+
+        return newArr;
+      };
+      return {
+        products: state.products - 1,
+        listItems: newArr,
+        popup: false,
+      };
+      break;
     case "POPUP_CLOSE":
       return {
         ...state,
