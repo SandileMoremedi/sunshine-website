@@ -1,27 +1,16 @@
 @import "../utils/variables";
 .product {
-  max-width: 1000px;
+  display: flex;
+  gap: 30px;
+  max-width: 80vw;
   margin: 0 auto;
-  width: 80vw;
-  min-height: 100vh;
-  .headings {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
-    a {
-      padding: 10px;
-      margin: 0 20px;
-      background-color: $Mustard;
-      color: $Soft-Brown;
-      border: 1px solid $Soft-Brown;
-      text-decoration: none;
-    }
+  h1 {
+    margin: 0;
+    padding: 0;
   }
 
   .image {
-    width: 100%;
+    width: 500px;
     height: 300px;
     position: relative;
   }

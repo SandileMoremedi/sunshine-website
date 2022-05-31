@@ -3,6 +3,9 @@ import { useState } from "react";
 import { useUser } from "@auth0/nextjs-auth0";
 import { ProductsContext } from "./ProductsProvider";
 import { useContext } from "react";
+import Image from "next/image";
+import { FaExclamationCircle } from "react-icons/fa";
+import { IoIosArrowDown } from "react-icons/io";
 
 const Header = () => {
   const [navbar, setNavbar] = useState(false);
@@ -30,7 +33,12 @@ const Header = () => {
             navbar ? "nav__linksAndButtons open" : "nav__linksAndButtons close"
           }
         >
-          <ul className="ul">
+          <ul
+            className="ul"
+            onClick={() => {
+              setNavbar(false);
+            }}
+          >
             <li>
               <Link href="/">Home</Link>
             </li>
@@ -69,7 +77,28 @@ const Header = () => {
           </ul>
           <div className="log">
             {user ? (
-              <Link href="/api/auth/logout">Logout</Link>
+              <div className="log__details">
+                <div className="image">
+                  <Image
+                    src={user.picture}
+                    layout="fill"
+                    objectFit="cover"
+                    alt="Profile"
+                  />
+                </div>
+                {/* <span>{user.nickname}</span> */}
+                <button>
+                  <IoIosArrowDown />
+                </button>
+                <div className="log__details__hover">
+                  <Link href="/api/auth/logout">
+                    <span>
+                      <FaExclamationCircle />
+                      Logout
+                    </span>
+                  </Link>
+                </div>
+              </div>
             ) : (
               <Link href="/api/auth/login">Login</Link>
             )}

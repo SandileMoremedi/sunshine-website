@@ -7,29 +7,18 @@ const Product = ({ product }) => {
     <div className="product">
       {product && (
         <>
-          <div className="headings">
-            <h1>{product.title}</h1>
-            <div className="headings__buttons">
-              <Link href="/cart">Add to card</Link>
-              <Link href="/add">Add and Checkout</Link>
+          <div className="left">
+            <div className="image">
+              <Image
+                src={product.productImage}
+                layout="fill"
+                alt="Product"
+                objectFit="cover"
+              />
             </div>
           </div>
-          <div className="image">
-            <Image
-              src={product.productImage}
-              layout="fill"
-              objectFit="cover"
-              alt="Product Photo"
-            />
-          </div>
-          <div className="details">
-            <span>{`Price: R${product.price}`}</span>
-            <p className="info">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
-              laboriosam ea facilis porro alias unde, eveniet quae ipsa ab!
-              Quibusdam laudantium ducimus officia perferendis dolorum corporis
-              ipsum earum. Nam, illo.
-            </p>
+          <div className="right">
+            <h1>{product.title}</h1>
           </div>
         </>
       )}
@@ -49,11 +38,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  // It's important to default the slug so that it doesn't return "undefined"
   const { slug = "" } = context.params;
   const product = await sanityconfig.fetch(
     `
-    *[_type == "products" && slug.current == $slug][0]{slug, "productImage": mainImage.asset->url, title, price, quantity}
+    *[_type == "products" && slug.current == $slug][0]{slug, "productImage": mainImage.asset->url, title, price, quantity, body}
   `,
     { slug }
   );

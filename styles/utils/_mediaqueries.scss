@@ -8,7 +8,7 @@
 
     .navbar.open {
       position: relative;
-      right: 31vw;
+      right: 80vw;
       transition: right 0.6s ease-in-out;
     }
     .navbar.close {
@@ -27,7 +27,7 @@
       padding: 0 !important;
       height: 100vh;
       justify-content: space-between !important;
-      width: 30vw;
+      width: 79vw;
       right: 0;
 
       ul {
@@ -69,12 +69,22 @@
     border: 1px solid $Soft-Brown;
   }
   .nav__linksAndButtons.close {
-    right: -30vw;
+    right: -79vw;
     transition: right 0.6s ease-in-out;
   }
 
   .ul__categories__list {
     display: none !important;
+  }
+
+  .log__details__hover {
+    position: relative !important;
+    display: flex !important;
+  }
+  .log__details {
+    button {
+      display: none;
+    }
   }
 }
 
@@ -133,25 +143,25 @@
 }
 
 // Making the product page responsive
-@media (min-width: 0) and (max-width: 700px) {
-  .product {
-    span {
-      margin: 20px 0;
-    }
+// @media (min-width: 0) and (max-width: 700px) {
+//   .product {
+//     span {
+//       margin: 20px 0;
+//     }
 
-    .headings {
-      display: flex;
-      flex-direction: column !important;
-      .headings__buttons {
-        display: flex;
-        flex-direction: column !important;
+//     .headings {
+//       display: flex;
+//       flex-direction: column !important;
+//       .headings__buttons {
+//         display: flex;
+//         flex-direction: column !important;
 
-        a {
-          width: 100%;
-          margin: 10px auto;
-          text-align: center;
-        }
-      }
-    }
-  }
-}
+//         a {
+//           width: 100%;
+//           margin: 10px auto;
+//           text-align: center;
+//         }
+//       }
+//     }
+//   }
+// }
