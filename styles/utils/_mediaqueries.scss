@@ -143,25 +143,36 @@
 }
 
 // Making the product page responsive
-// @media (min-width: 0) and (max-width: 700px) {
-//   .product {
-//     span {
-//       margin: 20px 0;
-//     }
+@media (min-width: 0) and (max-width: 700px) {
+  .product {
+    span {
+      margin: 20px 0;
+    }
 
-//     .headings {
-//       display: flex;
-//       flex-direction: column !important;
-//       .headings__buttons {
-//         display: flex;
-//         flex-direction: column !important;
+    .headings {
+      display: flex;
+      flex-direction: column !important;
+      .headings__buttons {
+        display: flex;
+        flex-direction: column !important;
 
-//         a {
-//           width: 100%;
-//           margin: 10px auto;
-//           text-align: center;
-//         }
-//       }
-//     }
-//   }
-// }
+        a {
+          width: 100%;
+          margin: 10px auto;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 0) and (max-width: 349px) {
+  .categories__main {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+}
+@media (min-width: 350px) and (max-width: 700px) {
+  .categories__main {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
