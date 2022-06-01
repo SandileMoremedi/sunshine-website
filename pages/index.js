@@ -8,6 +8,7 @@ import { useState, useContext } from "react";
 import { ProductsContext } from "../components/ProductsProvider";
 import { FaCheckCircle } from "react-icons/fa";
 import Modal from "../components/Modal";
+import { motion } from "framer-motion";
 
 export default function Home({ data }) {
   const { user, error, isLoading } = useUser();
@@ -41,7 +42,12 @@ export default function Home({ data }) {
       )}
       <div className="home">
         <h1>Sunshine CC</h1>
-        <Modal></Modal>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          <Modal></Modal>
+        </motion.div>
         <div className="cards">
           {data &&
             data.map((card, index) => <CustomImage data={card} key={index} />)}

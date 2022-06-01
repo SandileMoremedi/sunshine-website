@@ -5,13 +5,13 @@ import { ProductsContext } from "../components/ProductsProvider";
 
 export default function Checkout() {
   const { state, dispatch } = useContext(ProductsContext);
-  console.log(state);
+
   return (
     <div className="checkout">
       <h1>Checkout</h1>
-      <div className="checkout__list">
-        <>
-          {state &&
+      <>
+        <div className="checkout__list">
+          {state.products !== 0 ? (
             state.listItems.map((product, index) => (
               <div className="checkout__item" key={index}>
                 <div className="image">
@@ -28,37 +28,28 @@ export default function Checkout() {
                   <span>{`Price: ${product.price}`}</span>
                   <span>Quantity Ordered: 1</span>
                 </div>
-                <button className="cancel">
+                <button
+                  className="cancel"
+                  onClick={() => {
+                    dispatch({
+                      type: "REMOVED_AN_ITEM",
+                      payload: product.id,
+                    });
+                  }}
+                >
                   <FaTrash />
                 </button>
               </div>
-            ))}
-        </>
-      </div>
-
-      <div className="checkout__confirm">
-        <div className="checkout__text">
-          <h3>Order?</h3>
-          <p>Do you want to confirm your order?</p>
+            ))
+          ) : (
+            <>
+              <div className="checkout__empty">
+                <h2>Cart Is Empty</h2>
+              </div>
+            </>
+          )}
         </div>
-        <div className="confirm__buttons">
-          <button
-            className="confirm__button__green"
-            onClick={(e) => {
-              e.preventDefault();
-              dispatch({
-                type: "REMOVED_AN_ITEM",
-                payload: product.id,
-              });
-            }}
-          >
-            <FaThumbsUp />
-          </button>
-          <button className="confirm__button__cancel">
-            <FaThumbsDown />
-          </button>
-        </div>
-      </div>
+      </>
     </div>
   );
 }

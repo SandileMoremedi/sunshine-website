@@ -16,9 +16,7 @@ const CustomImage = ({ data }) => {
           objectFit="cover"
         />
       </div>
-      <h2>
-        <Link href={`products/${data.slug.current}`}>{data.title}</Link>
-      </h2>
+      <h2>{data.title}</h2>
       <span>{`Quantity Available: ${data.quantity}`}</span>
       <span>{`Price: R${data.price}`}</span>
       <div className="card__buttons">
@@ -40,16 +38,10 @@ const CustomImage = ({ data }) => {
           Add To Cart
         </button>
         <Link
-          href="/checkout"
+          href={`products/${data.slug.current}`}
           className="card__buttons__checkout"
-          onClick={() => {
-            dispatch({
-              type: "ADDED_AN_ITEM_TO_CART",
-              payload: data.slug.current,
-            });
-          }}
         >
-          Add and Checkout
+          Read More
         </Link>
       </div>
     </div>

@@ -1,8 +1,19 @@
 import Image from "next/image";
 import sanityconfig from "../../sanityconfig";
 import Link from "next/link";
+import SanityBlockContent from "@sanity/block-content-to-react";
 
 const Product = ({ product }) => {
+  const serializers = {
+    types: {
+      code: (props) => (
+        <pre data-language={props.node.language}>
+          <code>{props.node.code}</code>
+        </pre>
+      ),
+    },
+  };
+  console.log(product);
   return (
     <div className="product">
       {product && (
@@ -19,6 +30,10 @@ const Product = ({ product }) => {
           </div>
           <div className="right">
             <h1>{product.title}</h1>
+            <SanityBlockContent
+              blocks={product.body}
+              serializers={serializers}
+            />
           </div>
         </>
       )}
