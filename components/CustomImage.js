@@ -38,7 +38,7 @@ const CustomImage = ({ data }) => {
           Add To Cart
         </button>
         <Link
-          href={`products/${data.slug.current}`}
+          href={`/products/${data.slug.current}`}
           className="card__buttons__checkout"
         >
           Read More

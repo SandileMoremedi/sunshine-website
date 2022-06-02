@@ -35,7 +35,7 @@ export default {
     },
     {
       title: "Text",
-      name: "text",
+      name: "body",
       type: "array",
       of: [{ type: "block" }],
     },
