@@ -1,7 +1,8 @@
 {
   "root": true,
   "project": {
-    "name": "sunshine-studio"
+    "name": "sunshine-studio",
+    "basePath": "/studio"
   },
   "api": {
     "projectId": "e2xnj9f2",
@@ -16,9 +17,7 @@
   ],
   "env": {
     "development": {
-      "plugins": [
-        "@sanity/vision"
-      ]
+      "plugins": ["@sanity/vision"]
     }
   },
   "parts": [
