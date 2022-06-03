@@ -171,3 +171,27 @@
     grid-template-columns: repeat(1, 1fr) !important;
   }
 }
+
+@media (min-width: 0) and (max-width: 800px) {
+  .checkout__item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+  }
+
+  .info__quantity {
+    align-items: center !important;
+    margin: 20px 0 !important;
+  }
+}
+@media (min-width: 801px) {
+  .image,
+  .cancel {
+    flex: 1;
+  }
+  .info {
+    flex: 5;
+    align-items: flex-start;
+  }
+}

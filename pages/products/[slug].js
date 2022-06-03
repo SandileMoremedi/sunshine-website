@@ -1,9 +1,12 @@
 import Image from "next/image";
 import sanityconfig from "../../sanityconfig";
 import Link from "next/link";
+import { useContext } from "react";
+import { ProductsContext } from "../../components/ProductsProvider";
 import SanityBlockContent from "@sanity/block-content-to-react";
 
 const Product = ({ product }) => {
+  const { dispatch } = useContext(ProductsContext);
   const serializers = {
     types: {
       code: (props) => (
@@ -13,7 +16,6 @@ const Product = ({ product }) => {
       ),
     },
   };
-  console.log(product);
   return (
     <div className="product">
       {product && (
@@ -34,12 +36,33 @@ const Product = ({ product }) => {
               blocks={product.body}
               serializers={serializers}
             />
+            <span>{`Price: R${product.price}`}</span>
+            <span>{`Quantity Available: ${product.quantity}`}</span>
+
+            <button
+              onClick={() => {
+                dispatch({
+                  type: "ADDED_AN_ITEM_TO_CART",
+                  payload: {
+                    title: product.title,
+                    slug: product.slug.current,
+                    id: product._id,
+                    image: product.productImage,
+                    price: product.price,
+                    body: product.body,
+                  },
+                });
+              }}
+            >
+              Add To Cart
+            </button>
           </div>
         </>
       )}
     </div>
   );
 };
+
 export default Product;
 export async function getStaticPaths() {
   const paths = await sanityconfig.fetch(

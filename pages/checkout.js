@@ -1,10 +1,11 @@
 import Image from "next/image";
-import { FaTrash, FaCheck, FaThumbsUp, FaThumbsDown } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 import { useContext } from "react";
 import { ProductsContext } from "../components/ProductsProvider";
 
 export default function Checkout() {
   const { state, dispatch } = useContext(ProductsContext);
+  console.log(state.listItems);
 
   return (
     <div className="checkout">
@@ -27,6 +28,48 @@ export default function Checkout() {
                   <h3>{product.title}</h3>
                   <span>{`Price: ${product.price}`}</span>
                   <span>Quantity Ordered: 1</span>
+                  <div className="info__quantity">
+                    <span>How Many Do You Want?</span>
+                    <div className="info__quantity__buttons">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          dispatch({
+                            type: "ADD_PRODUCT",
+                            payload: {
+                              title: product.title,
+                              slug: product.slug.current,
+                              id: product._id,
+                              image: product.ProductImage,
+                              price: product.price,
+                              quantityWanted: product.quantityWanted--,
+                            },
+                          });
+                        }}
+                      >
+                        -
+                      </button>
+                      <span>{product.quantityWanted}</span>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          dispatch({
+                            type: "MINUS_PRODUCT",
+                            payload: {
+                              title: product.title,
+                              slug: product.slug.current,
+                              id: product._id,
+                              image: product.ProductImage,
+                              price: product.price,
+                              quantityWanted: product.quantityWanted++,
+                            },
+                          });
+                        }}
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
                 </div>
                 <button
                   className="cancel"

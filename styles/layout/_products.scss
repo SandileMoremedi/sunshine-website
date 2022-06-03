@@ -1,12 +1,35 @@
 @import "../utils/variables";
 .product {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
   gap: 30px;
   max-width: 80vw;
   margin: 0 auto;
+  place-items: center;
   h1 {
     margin: 0;
     padding: 0;
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    span {
+      font-size: 1.4rem;
+      margin: 10px 0;
+    }
+
+    button {
+      padding: 10px 0;
+      font-size: 1.3rem;
+      background-color: $Mustard;
+      border: 2px solid $Soft-Brown;
+      color: $Soft-Brown;
+      cursor: pointer;
+    }
   }
 
   .image {

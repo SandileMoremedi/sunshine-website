@@ -18,14 +18,13 @@ const reducer = (state, action) => {
       };
       break;
     case "REMOVED_AN_ITEM":
-      let newArr = [...state.listItems];
-      let index = newArr.findIndex((element) => {
-        element.id === payload;
-      });
-      newArr.splice(index, 1);
+      var newArray = [...state.listItems];
+      var index = newArray.findIndex((element) => element.id === payload);
+      newArray.splice(index, 1);
+
       return {
         products: state.products - 1,
-        listItems: newArr,
+        listItems: newArray,
         popup: false,
       };
       break;
@@ -36,6 +35,18 @@ const reducer = (state, action) => {
       };
       break;
 
+    case "ADD_PRODUCT":
+      return {
+        ...state,
+        payload,
+      };
+      break;
+    case "MINUS_PRODUCT":
+      return {
+        ...state,
+        payload,
+      };
+      break;
     default:
       return state;
       break;

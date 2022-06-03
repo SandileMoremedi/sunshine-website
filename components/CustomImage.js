@@ -31,6 +31,7 @@ const CustomImage = ({ data }) => {
                 id: data._id,
                 image: data.ProductImage,
                 price: data.price,
+                quantityWanted: 1,
               },
             });
           }}
