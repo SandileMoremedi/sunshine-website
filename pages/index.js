@@ -6,7 +6,7 @@ import sanityconfig from "../sanityconfig";
 import { useUser } from "@auth0/nextjs-auth0";
 import { useState, useContext } from "react";
 import { ProductsContext } from "../components/ProductsProvider";
-import { FaCheckCircle } from "react-icons/fa";
+import { FaCheckCircle, FaSearch } from "react-icons/fa";
 import Modal from "../components/Modal";
 import { motion } from "framer-motion";
 
@@ -42,15 +42,24 @@ export default function Home({ data }) {
       )}
       <div className="home">
         <h1>Sunshine CC</h1>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
-          <Modal></Modal>
-        </motion.div>
+        <div className="searchBar">
+          <label htmlFor="searchbar">
+            <FaSearch />
+          </label>
+          <input
+            type="text"
+            id="searchbar"
+            onChange={(e) => {
+              setQuery(e.target.value);
+            }}
+          />
+        </div>
+        <Modal></Modal>
         <div className="cards">
           {data &&
-            data.map((card, index) => <CustomImage data={card} key={index} />)}
+            data
+              .filter((item) => item.title.toLowerCase().includes(query))
+              .map((card, index) => <CustomImage data={card} key={index} />)}
         </div>
         {user && <h2>{user.name}</h2>}
       </div>

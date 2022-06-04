@@ -6,6 +6,13 @@ import { ProductsContext } from "./ProductsProvider";
 const CustomImage = ({ data }) => {
   const { dispatch, state } = useContext(ProductsContext);
   const [modal, setModal] = useState(false);
+  async function timer() {
+    setTimeout(() => {
+      dispatch({
+        type: "POPUP_CLOSE",
+      });
+    }, 2000);
+  }
   return (
     <div className="card">
       <div className="card__image">
@@ -34,6 +41,7 @@ const CustomImage = ({ data }) => {
                 quantityWanted: 1,
               },
             });
+            timer();
           }}
         >
           Add To Cart

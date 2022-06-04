@@ -1,0 +1,31 @@
+@import "../utils/variables";
+.searchBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  background-color: $Light-Orange;
+  padding: 20px;
+  border-radius: 30px;
+  width: 70vw;
+  max-width: 400px;
+
+  label {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+  }
+  input {
+    padding: 10px;
+    background-color: $Light-Orange;
+    border: 0;
+    border-bottom: 3px solid $Soft-Brown;
+    // font-size: 1rem;
+    color: $Soft-Brown;
+    &:focus {
+      outline: none;
+    }
+  }
+}
