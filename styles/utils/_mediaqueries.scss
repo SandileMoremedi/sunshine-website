@@ -180,6 +180,10 @@
     text-align: center;
   }
 
+  .checkout {
+    flex-direction: column !important;
+  }
+
   .info__quantity {
     align-items: center !important;
     margin: 20px 0 !important;
