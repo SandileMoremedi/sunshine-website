@@ -3,6 +3,7 @@ const initialValues = {
   products: 0,
   listItems: [],
   popup: false,
+  total: 0,
 };
 
 const ProductsContext = createContext(initialValues);
@@ -15,17 +16,19 @@ const reducer = (state, action) => {
         products: state.products + 1,
         listItems: [...state.listItems, payload],
         popup: true,
+        total: state.total + payload.price,
       };
       break;
     case "REMOVED_AN_ITEM":
       var newArray = [...state.listItems];
-      var index = newArray.findIndex((element) => element.id === payload);
+      var index = newArray.findIndex((element) => element.id === payload.id);
       newArray.splice(index, 1);
 
       return {
         products: state.products - 1,
         listItems: newArray,
         popup: false,
+        total: state.total - payload.price,
       };
       break;
     case "POPUP_CLOSE":

@@ -2,15 +2,26 @@ import Image from "next/image";
 import { FaTrash } from "react-icons/fa";
 import { useContext } from "react";
 import { ProductsContext } from "../components/ProductsProvider";
+import Head from "next/head";
 
 export default function Checkout() {
   const { state, dispatch } = useContext(ProductsContext);
-  console.log(state.listItems);
 
   return (
-    <div className="checkout">
+    <>
+      <Head>
+        <title>Sunshine CC | Checkout</title>
+      </Head>
       <h1>Checkout</h1>
-      <>
+      <div className="checkout">
+        <aside className="checkout__aside">
+          <h2>Products Summary</h2>
+          <div className="aside__heading">
+            <h4>Total:</h4>
+            <span>R{state.total}</span>
+          </div>
+          <button>Order</button>
+        </aside>
         <div className="checkout__list">
           {state.products !== 0 ? (
             state.listItems.map((product, index) => (
@@ -76,7 +87,7 @@ export default function Checkout() {
                   onClick={() => {
                     dispatch({
                       type: "REMOVED_AN_ITEM",
-                      payload: product.id,
+                      payload: product,
                     });
                   }}
                 >
@@ -85,15 +96,13 @@ export default function Checkout() {
               </div>
             ))
           ) : (
-            <>
-              <div className="checkout__empty">
-                <h2>Cart Is Empty</h2>
-              </div>
-            </>
+            <div className="checkout__empty">
+              <h2>Cart Is Empty</h2>
+            </div>
           )}
         </div>
-      </>
-    </div>
+      </div>
+    </>
   );
 }
 

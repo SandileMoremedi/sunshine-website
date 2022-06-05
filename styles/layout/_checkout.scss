@@ -1,13 +1,46 @@
 @import "../utils/variables";
+h1 {
+  text-align: center;
+}
 
 .checkout {
-  max-width: 1000px;
-  margin: 0 auto;
-  width: 80vw;
   min-height: 100vh;
+  display: flex;
+  flex-direction: row-reverse;
+  width: 90vw;
+  margin: 0 auto;
+  gap: 30px;
 
-  h1 {
-    text-align: center;
+  .checkout__aside {
+    flex: 1;
+    background-color: $Light-Orange;
+    height: max-content;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    position: sticky;
+    top: 0;
+
+    .aside__heading {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      span {
+        font-size: 1.4rem;
+        font-weight: 900;
+      }
+    }
+    button {
+      padding: 10px 0;
+      background-color: $Mustard;
+      font-size: 1.4rem;
+      color: $Dark-Blue;
+      cursor: pointer;
+      border: none;
+      border-radius: 30px;
+    }
   }
 
   .checkout__list {
@@ -15,6 +48,7 @@
     flex-direction: column;
     gap: 30px;
     margin-bottom: 200px;
+    flex: 3;
     .checkout__item {
       display: flex;
       flex-direction: row;

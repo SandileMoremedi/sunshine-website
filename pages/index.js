@@ -4,7 +4,7 @@ import Image from "next/image";
 import CustomImage from "../components/CustomImage";
 import sanityconfig from "../sanityconfig";
 import { useUser } from "@auth0/nextjs-auth0";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { ProductsContext } from "../components/ProductsProvider";
 import { FaCheckCircle, FaSearch } from "react-icons/fa";
 import Modal from "../components/Modal";
