@@ -1,11 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useContext, useState, useEffect} from "react";
+import { useContext, useState, useEffect } from "react";
 import { ProductsContext } from "./ProductsProvider";
 
 const CustomImage = ({ data }) => {
   const { dispatch, state } = useContext(ProductsContext);
-  const [itemChosen, setItemChosen] = useState(false);
   async function timer() {
     setTimeout(() => {
       dispatch({
@@ -13,7 +12,6 @@ const CustomImage = ({ data }) => {
       });
     }, 2000);
   }
-  
 
   return (
     <div className="card">

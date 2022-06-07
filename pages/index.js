@@ -8,13 +8,11 @@ import { useState, useContext, useEffect } from "react";
 import { ProductsContext } from "../components/ProductsProvider";
 import { FaCheckCircle, FaSearch } from "react-icons/fa";
 import Modal from "../components/Modal";
-import { motion } from "framer-motion";
 
 export default function Home({ data }) {
   const { user, error, isLoading } = useUser();
   const [query, setQuery] = useState("");
   const { state, dispatch } = useContext(ProductsContext);
-
   return (
     <>
       <Head>
@@ -54,11 +52,11 @@ export default function Home({ data }) {
             }}
           />
         </div>
-        <Modal></Modal>
+        <Modal />
         <div className="cards">
           {data &&
             data
-              .filter((item) => item.title.toLowerCase().includes(query))
+              .filter((item) => item.title.includes(query.toLowerCase()))
               .map((card, index) => <CustomImage data={card} key={index} />)}
         </div>
         {user && <h2>{user.name}</h2>}

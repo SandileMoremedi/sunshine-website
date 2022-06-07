@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Categories = () => {
   return (
@@ -20,9 +21,9 @@ const Categories = () => {
                 alt="product"
               />
             </div>
-            <a href="/categories/fruits-and-flowers" className="text">
+            <Link href="/categories/fruits-and-flowers" className="text">
               Fresh Fruit and Vegetables
-            </a>
+            </Link>
           </article>
           <article className="main__item">
             <div className="image">
@@ -33,9 +34,9 @@ const Categories = () => {
                 alt="product"
               />
             </div>
-            <a href="/categories/bakery" className="text">
+            <Link href="/categories/bakery" className="text">
               Bakery
-            </a>
+            </Link>
           </article>
           <article className="main__item">
             <div className="image">
@@ -46,9 +47,9 @@ const Categories = () => {
                 alt="product"
               />
             </div>
-            <a href="/categories/milk-cheese-eggs" className="text">
+            <Link href="/categories/eggs-milk" className="text">
               Milk, Cheese and Eggs
-            </a>
+            </Link>
           </article>
           <article className="main__item">
             <div className="image">
@@ -59,9 +60,9 @@ const Categories = () => {
                 alt="product"
               />
             </div>
-            <a href="/categories/meat" className="text">
+            <Link href="/categories/meat" className="text">
               Meat, Poultry and Seafood
-            </a>
+            </Link>
           </article>
           <article className="main__item">
             <div className="image">
@@ -72,9 +73,9 @@ const Categories = () => {
                 alt="product"
               />
             </div>
-            <a href="/categories/frozen-food" className="text">
+            <Link href="/categories/frozen-food" className="text">
               Frozen Food
-            </a>
+            </Link>
           </article>
 
           <article className="main__item">
@@ -86,9 +87,9 @@ const Categories = () => {
                 alt="product"
               />
             </div>
-            <a href="/categories/chocolate-chips-snacks" className="text">
+            <Link href="/categories/chocolate-chips-snacks" className="text">
               Chocolate, Chips and Snacks
-            </a>
+            </Link>
           </article>
           <article className="main__item">
             <div className="image">
@@ -99,9 +100,9 @@ const Categories = () => {
                 alt="product"
               />
             </div>
-            <a href="/categories/beverages" className="text">
+            <Link href="/categories/beverages" className="text">
               Beverages
-            </a>
+            </Link>
           </article>
           <article className="main__item">
             <div className="image">
@@ -112,9 +113,9 @@ const Categories = () => {
                 alt="product"
               />
             </div>
-            <a href="/categories/alcohol" className="text">
+            <Link href="/categories/alcohol" className="text">
               Alcohol
-            </a>
+            </Link>
           </article>
           <article className="main__item">
             <div className="image">
@@ -125,9 +126,9 @@ const Categories = () => {
                 alt="product"
               />
             </div>
-            <a href="/categories/household-cleaning" className="text">
+            <Link href="/categories/household-cleaning" className="text">
               Household and Cleaning
-            </a>
+            </Link>
           </article>
           <article className="main__item">
             <div className="image">
@@ -138,9 +139,9 @@ const Categories = () => {
                 alt="product"
               />
             </div>
-            <a href="/categories/personal-care-health" className="text">
+            <Link href="/categories/personal-care-health" className="text">
               Personal Care and Health
-            </a>
+            </Link>
           </article>
           <article className="main__item">
             <div className="image">
@@ -151,9 +152,9 @@ const Categories = () => {
                 alt="product"
               />
             </div>
-            <a href="/categories/baby-products" className="text">
+            <Link href="/categories/baby-products" className="text">
               Baby Products
-            </a>
+            </Link>
           </article>
           <article className="main__item">
             <div className="image">
@@ -164,9 +165,9 @@ const Categories = () => {
                 alt="product"
               />
             </div>
-            <a href="/categories/pet-care" className="text">
+            <Link href="/categories/pet-care" className="text">
               Pet Care
-            </a>
+            </Link>
           </article>
         </main>
       </div>
