@@ -1,0 +1,68 @@
+@import "../utils/variables";
+.dashboard {
+  display: flex;
+  background-color: white;
+  gap: 30px;
+  padding: 20px 0;
+
+  .heading {
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    border-right: 2px solid $Dark-Blue;
+    button {
+      padding: 10px;
+      color: $Dark-Blue;
+      background-color: white;
+      border: none;
+      cursor: pointer;
+      width: fit-content;
+      padding: 20px 25px;
+      border-radius: 20px;
+      font-size: 1.3rem;
+
+      &:hover {
+        background-color: $Dark-Blue;
+        color: white;
+      }
+    }
+  }
+  .orders {
+    flex: 3;
+    min-height: 90vh;
+    color: $Dark-Blue;
+    display: flex;
+    flex-direction: row;
+
+    .numbers {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .name {
+      flex: 2;
+    }
+
+    .amount {
+      flex: 1;
+    }
+
+    .status {
+      flex: 1;
+    }
+
+    .name,
+    .amount,
+    .status {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

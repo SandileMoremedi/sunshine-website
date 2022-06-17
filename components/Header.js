@@ -86,7 +86,6 @@ const Header = () => {
                     alt="Profile"
                   />
                 </div>
-                {/* <span>{user.nickname}</span> */}
                 <button>
                   <IoIosArrowDown />
                 </button>
