@@ -1,8 +1,16 @@
 import { useState } from "react";
 import Head from "next/head";
 import Orders from "../components/Orders";
+import TopStats from "../components/TopStats";
+import DashboardComp from "../components/DashboardComp";
+import { FaCopy } from "react-icons/fa";
+import { BiBookBookmark } from "react-icons/bi";
+import { MdQueryStats, MdLocalGroceryStore } from "react-icons/md";
+import { AiFillSetting } from "react-icons/ai";
+import { AiTwotoneAppstore } from "react-icons/ai";
+import { BsFillPersonFill } from "react-icons/bs";
 const Dashboard = () => {
-  const [menu, setMenu] = useState("orders");
+  const [menu, setMenu] = useState("dashboard");
   return (
     <>
       <Head>
@@ -10,13 +18,56 @@ const Dashboard = () => {
       </Head>
       <main className="dashboard">
         <nav>
-          <button>Orders</button>
-          <button>Customers</button>
-          <button>Analytics</button>
-          <button>Products</button>
-          <button>Setting</button>
+          <button
+            className={menu == "dashboard" ? "dashboard open" : "dashboard"}
+            onClick={() => setMenu("dashboard")}
+          >
+            <AiTwotoneAppstore />
+            Dashboard
+          </button>
+          <button
+            className={
+              menu == "orders" ? "orders-button open" : "orders-button"
+            }
+            onClick={() => setMenu("orders")}
+          >
+            <BiBookBookmark />
+            Orders
+          </button>
+          <button
+            className={menu == "customers" ? "customers open" : "customers"}
+            onClick={() => setMenu("customers")}
+          >
+            <BsFillPersonFill />
+            Customers
+          </button>
+          <button
+            className={menu == "analytics" ? "analytics open" : "analytics"}
+            onClick={() => setMenu("analytics")}
+          >
+            <MdQueryStats />
+            Analytics
+          </button>
+          <button
+            className={menu == "products" ? "products open" : "products"}
+            onClick={() => setMenu("products")}
+          >
+            <MdLocalGroceryStore />
+            Products
+          </button>
+          <button
+            className={menu == "settings" ? "settings open" : "settings"}
+            onClick={() => setMenu("settings")}
+          >
+            <AiFillSetting />
+            Settings
+          </button>
         </nav>
-        {menu == "orders" && <Orders />}
+        <div className="dashboard-left">
+          <TopStats />
+          {menu == "dashboard" && <DashboardComp />}
+          {menu == "orders" && <Orders />}
+        </div>
       </main>
     </>
   );

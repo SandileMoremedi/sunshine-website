@@ -4,6 +4,7 @@
   background-color: white;
   gap: 30px;
   padding: 20px 0;
+  width: 100vw;
 
   .heading {
     font-size: 1.4rem;
@@ -16,7 +17,6 @@
     flex-direction: column;
     gap: 20px;
     align-items: center;
-    border-right: 2px solid $Dark-Blue;
     button {
       padding: 10px;
       color: $Dark-Blue;
@@ -27,42 +27,110 @@
       padding: 20px 25px;
       border-radius: 20px;
       font-size: 1.3rem;
+      transform: scale(1);
+      transition: transform 0.5s ease-in-out;
+      display: flex;
+      flex-direction: row;
+      gap: 4px;
+      align-items: center;
 
       &:hover {
-        background-color: $Dark-Blue;
-        color: white;
+        transform: scale(1.1);
+        transition: transform 0.5s ease-in-out;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+          rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+      }
+    }
+    .open {
+      background-color: $Dark-Blue;
+      color: $Soft-Brown;
+    }
+  }
+  .dashboard-left {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+
+    margin-right: 25px;
+
+    .topStats {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 60px;
+
+      .static {
+        background-color: $Custom-Red;
+        color: $Mustard;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        border-radius: 30px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+          rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+        .middle {
+          font-size: 2rem;
+        }
       }
     }
   }
-  .orders {
-    flex: 3;
-    min-height: 90vh;
-    color: $Dark-Blue;
-    display: flex;
-    flex-direction: row;
+}
 
-    .numbers {
-      display: flex;
-      flex-direction: column;
+// Table
+table {
+  border: 1px solid $Soft-Brown;
+  border-collapse: collapse;
+  padding: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  thead tr {
+    width: 100%;
+    display: flex;
+    .status,
+    .amount,
+    .number {
       flex: 1;
     }
     .name {
-      flex: 2;
+      flex: 3;
     }
-
-    .amount {
-      flex: 1;
-    }
-
-    .status {
-      flex: 1;
-    }
-
-    .name,
-    .amount,
-    .status {
+  }
+  tbody {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    tr {
+      width: 100% !important;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      td {
+        flex: 1;
+      }
+      .name {
+        flex: 3;
+        a {
+          text-decoration: none;
+          color: currentColor;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
     }
+  }
+  th {
+    border: 1px solid #b3adad;
+    padding: 5px;
+    background: $Dark-Blue;
+    color: $Soft-Brown;
+  }
+  td {
+    border-right: 1px solid #b3adad;
+    text-align: center;
+    padding: 5px;
+    background: #ffffff;
+    color: #313030;
   }
 }
