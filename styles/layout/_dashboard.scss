@@ -47,11 +47,11 @@
     }
   }
   .dashboard-left {
-    flex: 3;
+    flex: 4;
     display: flex;
     flex-direction: column;
-
     margin-right: 25px;
+    max-width: 100%;
 
     .topStats {
       display: flex;

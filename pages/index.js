@@ -56,7 +56,7 @@ export default function Home({ data }) {
         <div className="cards">
           {data &&
             data
-              .filter((item) => item.title.includes(query.toLowerCase()))
+              .filter((item) => item.title.includes(query))
               .map((card, index) => <CustomImage data={card} key={index} />)}
         </div>
         {user && <h2>{user.name}</h2>}

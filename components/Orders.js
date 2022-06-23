@@ -12,12 +12,36 @@ const Orders = () => {
       </thead>
       <tbody>
         <tr>
-          <td>bro</td>
+          <td>1</td>
           <td className="name">
-            <Link href="/">Bro</Link>
+            <Link href="/orders/1">Sandile Moremedi</Link>
           </td>
-          <td>bro</td>
-          <td>bro</td>
+          <td>R360</td>
+          <td>In Progress</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td className="name">
+            <Link href="/orders/1">Santan Dave</Link>
+          </td>
+          <td>R360</td>
+          <td>In Progress</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td className="name">
+            <Link href="/orders/1">Jessie Lingard</Link>
+          </td>
+          <td>R360</td>
+          <td>In Progress</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td className="name">
+            <Link href="/orders/1">Michel Brown</Link>
+          </td>
+          <td>R360</td>
+          <td>In Progress</td>
         </tr>
       </tbody>
     </table>
