@@ -1,8 +1,8 @@
 import Orders from "./Orders";
-export default function DashboardComp() {
+export default function DashboardComp({ users }) {
   return (
     <>
-      <Orders />
+      <Orders users={users} />
     </>
   );
 }

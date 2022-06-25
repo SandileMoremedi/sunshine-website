@@ -11,7 +11,7 @@ import { AiTwotoneAppstore } from "react-icons/ai";
 import { BsFillPersonFill } from "react-icons/bs";
 import Products from "../components/Products";
 import sanityconfig from "../sanityconfig.js";
-const Dashboard = ({ data }) => {
+const Dashboard = ({ data, users }) => {
   const [menu, setMenu] = useState("dashboard");
   return (
     <>
@@ -69,12 +69,16 @@ const Dashboard = ({ data }) => {
           {menu == "dashboard" && (
             <>
               <TopStats />
-              <DashboardComp />
+              {/* <DashboardComp users={users} /> */}
             </>
           )}
-          {menu == "orders" && <Orders />}
+          {/* {menu == "orders" && <Orders users={users} />} */}
           {menu == "analytics" && <Analytics />}
-          {menu == "products" && <Products data={data} />}
+          {menu == "products" && (
+            <>
+              <Products data={data} />
+            </>
+          )}
         </div>
       </main>
     </>
@@ -82,7 +86,10 @@ const Dashboard = ({ data }) => {
 };
 
 export default Dashboard;
-export const getServerSideProps = async () => {
+
+export async function getStaticProps() {
+  const fetchData = await fetch("https://jsonplaceholder.typicode.com/users");
+  const users = await fetchData.json();
   const data = await sanityconfig.fetch(
     `
     *[_type == "products"]{_id, title, slug, "ProductImage": mainImage.asset->url, price, quantity}
@@ -90,7 +97,8 @@ export const getServerSideProps = async () => {
   );
   return {
     props: {
+      users,
       data,
     },
   };
-};
+}

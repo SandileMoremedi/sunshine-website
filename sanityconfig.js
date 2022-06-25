@@ -4,5 +4,6 @@ export default sanityClient({
   projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_DATASET,
   useCdn: true,
-  apiVersion: "2022-05-31",
+  apiVersion: process.env.NEXT_PUBLIC_API_VERSION,
+  token: process.env.NEXT_PUBLIC_TOKEN,
 });

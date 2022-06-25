@@ -1,5 +1,5 @@
 import Link from "next/link";
-const Orders = () => {
+const Orders = ({ users }) => {
   return (
     <table>
       <thead>
@@ -11,38 +11,17 @@ const Orders = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td className="name">
-            <Link href="/orders/1">Sandile Moremedi</Link>
-          </td>
-          <td>R360</td>
-          <td>In Progress</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td className="name">
-            <Link href="/orders/1">Santan Dave</Link>
-          </td>
-          <td>R360</td>
-          <td>In Progress</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td className="name">
-            <Link href="/orders/1">Jessie Lingard</Link>
-          </td>
-          <td>R360</td>
-          <td>In Progress</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td className="name">
-            <Link href="/orders/1">Michel Brown</Link>
-          </td>
-          <td>R360</td>
-          <td>In Progress</td>
-        </tr>
+        {users &&
+          users.map((user, index) => (
+            <tr key={index}>
+              <td>{index + 1}</td>
+              <td className="name">
+                <Link href="/orders/1">{user.name}</Link>
+              </td>
+              <td>{String(100 * Math.random()).slice(0, 5)}</td>
+              <td>In Progress</td>
+            </tr>
+          ))}
       </tbody>
     </table>
   );

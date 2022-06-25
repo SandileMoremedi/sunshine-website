@@ -1,0 +1,43 @@
+@import "../utils/variables";
+.deleteModal__background {
+  background-color: black;
+  // opacity: 0.5;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+
+  .deleteModal {
+    background-color: $Dark-Blue;
+    padding: 20px;
+    border-radius: 30px;
+    text-align: center;
+    max-width: 400px;
+    .buttons__delete {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      button {
+        padding: 5px 10px;
+        font-size: 1.4rem;
+        cursor: pointer;
+      }
+      .cancel__delete {
+        background-color: $Light-Orange;
+        color: $Soft-Brown;
+        border: 1px solid $Soft-Brown;
+      }
+
+      .delete__confirm {
+        border: 1px solid $Custom-Red;
+        color: $Soft-Brown;
+        background-color: $Custom-Red;
+      }
+    }
+  }
+}

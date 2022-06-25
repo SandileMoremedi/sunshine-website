@@ -1,16 +1,23 @@
 import Link from "next/link";
 import { useState } from "react";
-import { useUser } from "@auth0/nextjs-auth0";
 import { ProductsContext } from "./ProductsProvider";
 import { useContext } from "react";
 import Image from "next/image";
 import { FaExclamationCircle } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signOut,
+} from "firebase/auth";
+import { app } from "../firebaseConfig";
 
 const Header = () => {
   const [navbar, setNavbar] = useState(false);
-  const { user, error, isLoading } = useUser();
-  const { state } = useContext(ProductsContext);
+  const { state, dispatch } = useContext(ProductsContext);
+  const provider = new GoogleAuthProvider();
+  console.log(state.user);
 
   return (
     <header className="header">
@@ -76,11 +83,11 @@ const Header = () => {
             </li>
           </ul>
           <div className="log">
-            {user ? (
+            {state.user ? (
               <div className="log__details">
                 <div className="image">
                   <Image
-                    src={user.picture}
+                    src={state.user.reloadUserInfo.photoUrl}
                     layout="fill"
                     objectFit="cover"
                     alt="Profile"
@@ -90,16 +97,35 @@ const Header = () => {
                   <IoIosArrowDown />
                 </button>
                 <div className="log__details__hover">
-                  <Link href="/api/auth/logout">
+                  <button
+                    onClick={() =>
+                      signOut(getAuth(app)).then(() => {
+                        dispatch({
+                          type: "LOGGING_OUT",
+                        });
+                      })
+                    }
+                  >
                     <span>
                       <FaExclamationCircle />
                       Logout
                     </span>
-                  </Link>
+                  </button>
                 </div>
               </div>
             ) : (
-              <Link href="/api/auth/login">Login</Link>
+              <button
+                onClick={() => {
+                  signInWithPopup(getAuth(app), provider).then((result) => {
+                    dispatch({
+                      type: "LOGGED_IN",
+                      payload: result.user,
+                    });
+                  });
+                }}
+              >
+                Login
+              </button>
             )}
           </div>
         </div>

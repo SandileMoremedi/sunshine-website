@@ -14,6 +14,16 @@
       color: $Soft-Brown;
       text-decoration: none;
     }
+    button {
+      color: $Soft-Brown;
+      background: transparent;
+      border: none;
+      font-size: 1.4rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
     .log__details {
       display: flex;
       align-items: center;
@@ -38,7 +48,7 @@
       .log__details__hover {
         display: none;
         background-color: $Mustard;
-        color: $Custom-Red;
+
         padding: 10px 30px;
         position: absolute;
         top: 100%;
@@ -46,12 +56,14 @@
         border-radius: 40px;
         span {
           display: flex;
+          align-items: center;
           gap: 10px;
           cursor: pointer;
+          color: $Custom-Red;
         }
       }
 
-      button {
+      a {
         font-size: 1.3rem;
         background-color: $Dark-Blue;
         border: none;

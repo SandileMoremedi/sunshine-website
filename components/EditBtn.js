@@ -1,19 +1,6 @@
-import sanityconfig from "../sanityconfig";
-const EditBtn = ({ product }) => {
-  async function handleDelete(id) {
-    sanityconfig.delete(id)
-    .then(() => 
-      console.log("Deleted"))
-    .catch((err) => console.log(err));
-  }
+const EditBtn = () => {
   return (
-    <button
-      className="edit"
-      type="submit"
-      onClick={() => {
-        handleDelete(product._id);
-      }}
-    >
+    <button className="edit" type="submit">
       Edit
     </button>
   );

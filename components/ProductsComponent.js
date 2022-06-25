@@ -1,8 +1,12 @@
 import Image from "next/image";
 import DeleteBtn from "./DeleteBtn";
 import EditBtn from "./EditBtn";
+import { useEffect, useState } from "react";
 
 const ProductsComponent = ({ products }) => {
+  useEffect(() => {
+    console.log("Now");
+  }, [products]);
   return (
     <div className="product__dashboard">
       <div className="image__dashboard">
@@ -15,7 +19,7 @@ const ProductsComponent = ({ products }) => {
       </div>
       <h3>{products.title}</h3>
       <div className="buttons">
-        <DeleteBtn data={products} />
+        <DeleteBtn product={products} />
         <EditBtn product={products} />
       </div>
     </div>
