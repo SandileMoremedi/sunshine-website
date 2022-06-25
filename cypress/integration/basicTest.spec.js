@@ -2,10 +2,10 @@
 
 describe("test the basic navigation", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3000/contact");
+    cy.visit("https://sunshine-website-sa.vercel.app/");
   });
 
   it("Check for header", () => {
-    cy.get("h1").should("contain.text", "Contact");
+    cy.get("button").should("contain.text", "Add To Cart").click();
   });
 });

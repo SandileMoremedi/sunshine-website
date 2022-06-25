@@ -87,8 +87,7 @@ const Dashboard = ({ data, users }) => {
 
 export default Dashboard;
 
-export async function getStaticProps() {
-  const fetchData = await fetch("https://jsonplaceholder.typicode.com/users");
+export async function getServerSideProps() {
   const users = await fetchData.json();
   const data = await sanityconfig.fetch(
     `

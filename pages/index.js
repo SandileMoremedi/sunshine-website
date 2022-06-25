@@ -3,14 +3,12 @@ import Head from "next/head";
 import Image from "next/image";
 import CustomImage from "../components/CustomImage";
 import sanityconfig from "../sanityconfig";
-import { useUser } from "@auth0/nextjs-auth0";
 import { useState, useContext, useEffect } from "react";
 import { ProductsContext } from "../components/ProductsProvider";
 import { FaCheckCircle, FaSearch } from "react-icons/fa";
 import Modal from "../components/Modal";
 
 export default function Home({ data }) {
-  const { user, error, isLoading } = useUser();
   const [query, setQuery] = useState("");
   const { state, dispatch } = useContext(ProductsContext);
   return (
@@ -59,7 +57,6 @@ export default function Home({ data }) {
               .filter((item) => item.title.includes(query))
               .map((card, index) => <CustomImage data={card} key={index} />)}
         </div>
-        {user && <h2>{user.name}</h2>}
       </div>
     </>
   );
