@@ -11,7 +11,7 @@ import { AiTwotoneAppstore } from "react-icons/ai";
 import { BsFillPersonFill } from "react-icons/bs";
 import Products from "../components/Products";
 import sanityconfig from "../sanityconfig.js";
-const Dashboard = ({ data, users }) => {
+const Dashboard = ({ data }) => {
   const [menu, setMenu] = useState("dashboard");
   return (
     <>
@@ -88,7 +88,6 @@ const Dashboard = ({ data, users }) => {
 export default Dashboard;
 
 export async function getServerSideProps() {
-  const users = await fetchData.json();
   const data = await sanityconfig.fetch(
     `
     *[_type == "products"]{_id, title, slug, "ProductImage": mainImage.asset->url, price, quantity}
