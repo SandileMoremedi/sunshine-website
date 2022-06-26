@@ -79,11 +79,13 @@
 
   .log__details__hover {
     position: relative !important;
-    display: flex !important;
+    display: none;
   }
   .log__details {
-    button {
-      display: none;
+    &:hover {
+      .log__details__hover {
+        display: flex !important;
+      }
     }
   }
 }

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ProductsContext } from "./ProductsProvider";
 import { useContext } from "react";
 import Image from "next/image";
@@ -10,6 +10,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   signOut,
+  onAuthStateChanged,
 } from "firebase/auth";
 import { app } from "../firebaseConfig";
 
@@ -17,7 +18,21 @@ const Header = () => {
   const [navbar, setNavbar] = useState(false);
   const { state, dispatch } = useContext(ProductsContext);
   const provider = new GoogleAuthProvider();
-  console.log(state.user);
+
+  useEffect(() => {
+    onAuthStateChanged(getAuth(app), (authUser) => {
+      if (authUser) {
+        dispatch({
+          type: "LOGGED_IN",
+          payload: authUser,
+        });
+      } else {
+        dispatch({
+          type: "LOGGED_OUT",
+        });
+      }
+    });
+  }, [dispatch]);
 
   return (
     <header className="header">
@@ -87,7 +102,7 @@ const Header = () => {
               <div className="log__details">
                 <div className="image">
                   <Image
-                    src={state.user.reloadUserInfo.photoUrl}
+                    src={state.user.photoURL}
                     layout="fill"
                     objectFit="cover"
                     alt="Profile"
