@@ -1,4 +1,4 @@
-@import "../utils/variables";
+
 h1 {
   text-align: center;
 }
@@ -13,7 +13,6 @@ h1 {
 
   .checkout__aside {
     flex: 1;
-    background-color: $Light-Orange;
     height: max-content;
     padding: 20px;
     display: flex;
@@ -34,9 +33,7 @@ h1 {
     }
     button {
       padding: 10px 0;
-      background-color: $Mustard;
       font-size: 1.4rem;
-      color: $Dark-Blue;
       cursor: pointer;
       border: none;
       border-radius: 30px;
@@ -53,7 +50,6 @@ h1 {
       display: flex;
       flex-direction: row;
       align-items: center;
-      background-color: $Mustard;
       padding: 20px;
       border-radius: 30px;
       justify-content: space-between;
@@ -64,7 +60,6 @@ h1 {
       }
 
       .cancel {
-        color: $Custom-Red;
         cursor: pointer;
         display: flex;
         align-items: center;
@@ -76,15 +71,12 @@ h1 {
       .info {
         display: flex;
         flex-direction: column;
-
         margin-left: 20px;
-        color: $Dark-Blue;
       }
     }
   }
 
   .checkout__confirm {
-    background-color: $Mustard;
     position: absolute;
     width: 100vw;
     bottom: 0;
@@ -109,7 +101,6 @@ h1 {
       }
 
       .confirm__button__cancel {
-        color: $Custom-Red;
         border: 0;
         font-size: 1.5rem;
         background-color: transparent;
@@ -132,15 +123,12 @@ h1 {
       gap: 20px;
       button {
         font-size: 1.3rem;
-        border: 1px solid $Dark-Blue;
         width: 30px;
         height: 30px;
         font-size: 1.4rem;
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: $Light-Orange;
-        color: $Soft-Brown;
       }
     }
   }

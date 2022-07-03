@@ -1,0 +1,15 @@
+.addingProducts {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  background-color: white;
+  color: black;
+  padding: 30px;
+  border-radius: 30px;
+
+  input {
+    padding: 10px;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+}

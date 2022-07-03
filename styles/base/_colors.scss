@@ -1,0 +1,291 @@
+@import "../utils/variables";
+// Home Page Colors
+// 1. Main Colors in the website
+body {
+  background-color: $Text-Color-Primary;
+  color: $Main-Background-Color;
+}
+// 2. Modal
+.modal {
+  background-color: $Text-Color-Secondary;
+  color: $Tertiary-Color;
+
+  .modal__text__close {
+    color: $Tertiary-Color;
+    background-color: $Text-Color-Secondary;
+  }
+}
+
+// 3. Home
+.home {
+  .searchBar {
+    background-color: $Tertiary-Color;
+    label {
+      color: $Text-Color-Primary;
+    }
+
+    input {
+      background-color: $Tertiary-Color;
+      border-bottom: 2px solid $Text-Color-Primary;
+      color: $Text-Color-Primary;
+    }
+  }
+
+  .card {
+    background-color: $Grid-Items-Color;
+
+    .card__buttons__add {
+      background-color: $Tertiary-Color;
+      border: none;
+      color: $Text-Color-Primary;
+      border: 2px solid transparent;
+
+      &:hover {
+        border: 2px solid $Text-Color-Primary;
+      }
+    }
+    a {
+      background-color: $Tertiary-Color !important;
+      color: $Text-Color-Primary;
+      border: 2px solid transparent;
+
+      &:hover {
+        border: 2px solid $Text-Color-Primary;
+      }
+    }
+  }
+}
+
+// 4. Navigation
+.header {
+  background-color: $Text-Color-Primary;
+  .bar {
+    background-color: $Main-Background-Color;
+  }
+
+  .nav__linksAndButtons {
+    background-color: $Text-Color-Primary;
+  }
+
+  .ul__categories__links {
+    background-color: $Text-Color-Secondary;
+  }
+
+  a:hover {
+    text-decoration: underline $Grid-Items-Color;
+  }
+
+  * {
+    color: $Main-Background-Color;
+  }
+
+  .ul__checkout__icon {
+    background-color: $Text-Color-Secondary;
+  }
+}
+
+// 5. Products Page (Not the Dashboard)
+.product {
+  button {
+    background-color: $Tertiary-Color;
+    color: $Text-Color-Primary;
+    border: 2px solid transparent;
+
+    &:hover {
+      border-color: $Text-Color-Primary;
+    }
+  }
+}
+
+// 6. Categories & Checkout
+.categories a {
+  color: $Main-Background-Color;
+}
+.checkout {
+  .checkout__item {
+    background-color: $Grid-Items-Color;
+  }
+  .checkout__aside {
+    background-color: $Grid-Items-Color;
+
+    button {
+      color: $Text-Color-Primary;
+    }
+  }
+  .cancel {
+    color: $Text-Color-Secondary;
+  }
+  .info__quantity__buttons button {
+    background-color: $Tertiary-Color;
+    color: $Text-Color-Primary;
+    border: none;
+  }
+}
+
+.contact {
+  button {
+    background-color: $Grid-Items-Color;
+    color: $Main-Background-Color;
+  }
+  input {
+    border: none;
+  }
+}
+
+// 7. Dashboard
+.dashboard {
+  nav {
+    button {
+      background-color: $Text-Color-Primary;
+      color: $Main-Background-Color;
+    }
+    button.open {
+      background-color: $Grid-Items-Color;
+    }
+  }
+
+  .searchBar {
+    background-color: $Tertiary-Color;
+    label {
+      color: $Text-Color-Primary;
+    }
+
+    input {
+      background-color: $Tertiary-Color;
+      border-bottom: 2px solid $Text-Color-Primary;
+      color: $Text-Color-Primary;
+    }
+  }
+
+  .product__dashboard {
+    background-color: $Grid-Items-Color;
+    padding: 15px;
+    border-radius: 20px;
+
+    .delete {
+      background-color: $Text-Color-Secondary;
+      color: $Main-Background-Color;
+      border: 1px solid $Main-Background-Color;
+    }
+
+    .edit {
+      background-color: $Text-Color-Primary;
+      color: $Main-Background-Color;
+      border: 1px solid $Main-Background-Color;
+    }
+  }
+  .static {
+    background-color: $Tertiary-Color;
+  }
+
+  table {
+    border: 1px solid $Main-Background-Color;
+    td {
+      border-left: 1px solid $Main-Background-Color;
+      border-right: 1px solid $Main-Background-Color;
+      border-bottom: none;
+      border-top: none;
+      background-color: $Text-Color-Primary;
+      color: $Main-Background-Color;
+    }
+  }
+}
+
+// 8. Dashboard Modal
+.deleteModal {
+  background-color: $Text-Color-Primary;
+
+  .delete__confirm {
+    background-color: $Text-Color-Secondary;
+    border: 1px solid $Text-Color-Secondary;
+    color: $Main-Background-Color;
+  }
+
+  .cancel__delete {
+    background-color: $Grid-Items-Color;
+    border: 1px solid $Grid-Items-Color;
+    color: $Main-Background-Color;
+  }
+}
+
+// 9. Authentication
+
+.loginOptions {
+  background-color: $Main-Background-Color;
+  width: max-content;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 20px;
+
+  .google {
+    padding: 10px 20px;
+    margin: 20px 0;
+    width: 80%;
+    background-color: $Text-Color-Secondary;
+    color: $Grid-Items-Color;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  .orDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    .aside-left {
+      background-color: grey;
+      width: 100px;
+      height: 3px;
+    }
+    .aside-right {
+      background-color: grey;
+      width: 100px;
+      height: 3px;
+    }
+  }
+
+  .orBtn {
+    color: grey;
+  }
+}
+.loginPage {
+  .submit {
+    background-color: $Grid-Items-Color;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 1.7rem;
+    color: $Text-Color-Primary;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+  }
+
+  label {
+    color: $Text-Color-Primary;
+  }
+  .loginPage__form {
+    button {
+      background-color: $Grid-Items-Color;
+      color: $Text-Color-Primary;
+      font-size: 1.4rem;
+    }
+
+    input:invalid[focused="true"] ~ span.incorrect {
+      display: block;
+      color: $Text-Color-Secondary;
+    }
+  }
+}
+
+.addProducts {
+  background-color: transparent;
+  padding: 20px 0;
+  border: 2px solid $Main-Background-Color;
+  color: $Main-Background-Color;
+  border-radius: 30px;
+  font-size: 1.7rem;
+  cursor: pointer;
+}

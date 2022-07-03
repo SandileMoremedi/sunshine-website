@@ -46,12 +46,7 @@ const CustomImage = ({ data }) => {
         >
           Add To Cart
         </button>
-        <Link
-          href={`/products/${data.slug.current}`}
-          className="card__buttons__checkout"
-        >
-          Read More
-        </Link>
+        <Link href={`/products/${data.slug.current}`}>Read More</Link>
       </div>
     </div>
   );

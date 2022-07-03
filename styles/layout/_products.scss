@@ -10,6 +10,7 @@
   h1 {
     margin: 0;
     padding: 0;
+    text-align: left;
   }
 
   .right {
@@ -25,9 +26,6 @@
     button {
       padding: 10px 0;
       font-size: 1.3rem;
-      background-color: $Mustard;
-      border: 2px solid $Soft-Brown;
-      color: $Soft-Brown;
       cursor: pointer;
     }
   }

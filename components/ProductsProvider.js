@@ -8,6 +8,8 @@ const initialValues = {
   deleteState: false,
   deleteId: "",
   user: null,
+  editState: false,
+  addingProduct: false,
 };
 
 const ProductsContext = createContext(initialValues);
@@ -98,12 +100,26 @@ const reducer = (state, action) => {
       };
       break;
 
+    // Editing the current product selected
+    case "EDIT_PRODUCT":
+      return {
+        ...state,
+        editState: true,
+      };
+
+    // Pop up modal for adding a product
+    case "ADDING_PRODUCT":
+      return {
+        ...state,
+        addingProduct: true,
+      };
     // Removing the modal and cancelling the process
     case "CANCEL_PRODUCT":
       return {
         ...state,
         deleteState: false,
         deleteId: "",
+        addingProduct: false,
       };
       break;
     default:

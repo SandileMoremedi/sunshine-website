@@ -1,11 +1,17 @@
-// import Head from "next/head";
+// NextJS Imports
 import Head from "next/head";
 import Image from "next/image";
-import CustomImage from "../components/CustomImage";
-import sanityconfig from "../sanityconfig";
+
+// React Imports & Libraries
 import { useState, useContext, useEffect } from "react";
-import { ProductsContext } from "../components/ProductsProvider";
 import { FaCheckCircle, FaSearch } from "react-icons/fa";
+
+//Sanity Imports
+import sanityconfig from "../sanityconfig";
+
+//Components Imports
+import CustomImage from "../components/CustomImage";
+import { ProductsContext } from "../components/ProductsProvider";
 import Modal from "../components/Modal";
 
 export default function Home({ data }) {
@@ -36,14 +42,14 @@ export default function Home({ data }) {
           </span>
         </Modal>
       )}
-      <div className="home">
+      <main className="home">
         <h1>Sunshine CC</h1>
         <div className="searchBar">
           <label htmlFor="searchbar">
             <FaSearch />
           </label>
           <input
-            type="text"
+            type="search"
             id="searchbar"
             onChange={(e) => {
               setQuery(e.target.value);
@@ -57,11 +63,11 @@ export default function Home({ data }) {
               .filter((item) => item.title.includes(query))
               .map((card, index) => <CustomImage data={card} key={index} />)}
         </div>
-      </div>
+      </main>
     </>
   );
 }
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const data = await sanityconfig.fetch(
     `
     *[_type == "products"]{_id, title, slug, "ProductImage": mainImage.asset->url, price, quantity}
@@ -71,5 +77,6 @@ export const getServerSideProps = async () => {
     props: {
       data,
     },
+    revalidate: 10,
   };
 };

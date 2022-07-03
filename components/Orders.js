@@ -11,15 +11,15 @@ const Orders = ({ users }) => {
         </tr>
       </thead>
       <tbody>
-        {users &&
+        {users.length !== 0 &&
           users.map((user, index) => (
             <tr key={index}>
               <td>{index + 1}</td>
               <td className="name">
-                <Link href="/orders/1">{user.name}</Link>
+                <Link href="/orders/1">{user.user}</Link>
               </td>
-              <td>{String(100 * Math.random()).slice(0, 5)}</td>
-              <td>In Progress</td>
+              <td>{user.amount}</td>
+              <td>{user.status}</td>
             </tr>
           ))}
       </tbody>

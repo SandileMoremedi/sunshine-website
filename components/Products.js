@@ -3,10 +3,13 @@
 import { FaSearch } from "react-icons/fa";
 
 import ProductsComponent from "./ProductsComponent";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { ProductsContext } from "./ProductsProvider";
 
 const Products = ({ data }) => {
   const [query, setQuery] = useState("");
+  const { dispatch } = useContext(ProductsContext);
+
   return (
     <>
       <div className="searchBar">
@@ -21,13 +24,23 @@ const Products = ({ data }) => {
           }}
         />
       </div>
+      <button
+        className="addProducts"
+        type="button"
+        onClick={() => dispatch({ type: "ADDING_PRODUCT" })}
+      >
+        Add Product +
+      </button>
       <div className="products__grid">
-        {data &&
+        {data.length !== 0 ? (
           data
             .filter((item) => item.title.includes(query))
             .map((product, index) => (
               <ProductsComponent key={index} products={product} />
-            ))}
+            ))
+        ) : (
+          <h2>No Items Included</h2>
+        )}
       </div>
     </>
   );

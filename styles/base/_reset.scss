@@ -1,7 +1,5 @@
 @import "../utils/variables";
 body {
-  background-color: $Dark-Blue;
-  color: $Soft-Brown;
   font-size: 20px;
   margin: 0;
   padding: 0;
@@ -18,7 +16,5 @@ html {
 
 #__next,
 body {
-  width: 100vw;
-  overflow-x: hidden;
   position: relative;
 }

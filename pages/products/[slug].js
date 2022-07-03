@@ -1,9 +1,14 @@
+// NextJS Imports
 import Image from "next/image";
-import sanityconfig from "../../sanityconfig";
 import Link from "next/link";
+//React Imports & Libraries
 import { useContext } from "react";
-import { ProductsContext } from "../../components/ProductsProvider";
 import SanityBlockContent from "@sanity/block-content-to-react";
+// Sanity Imports
+import sanityconfig from "../../sanityconfig";
+//Components Imports
+import { ProductsContext } from "../../components/ProductsProvider";
+
 
 const Product = ({ product }) => {
   const { dispatch } = useContext(ProductsContext);

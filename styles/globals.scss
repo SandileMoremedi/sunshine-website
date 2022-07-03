@@ -1,4 +1,5 @@
 @import "./base/reset";
+@import "./base/colors";
 @import "./base/typography";
 
 @import "./components/itemslayout";
@@ -9,6 +10,7 @@
 @import "./components/analytics";
 @import "./components/products";
 @import "./components/deleteModal";
+@import "./components/addingProducts";
 
 @import "./layout/home";
 @import "./layout/products";
@@ -17,6 +19,7 @@
 @import "./layout/categories";
 @import "./layout/checkout";
 @import "./layout/dashboard";
+@import "./layout/auth";
 
 @import "./utils/variables";
 @import "./utils/mediaqueries";

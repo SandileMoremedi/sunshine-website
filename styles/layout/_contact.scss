@@ -16,7 +16,6 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    border: 2px solid $Soft-Brown;
     border-radius: 20px;
 
     .contact__form__labels {
@@ -28,17 +27,12 @@
       padding: 10px;
       font-size: 1.2rem;
       border-radius: 20px;
-      border: 1px solid $Soft-Brown;
-      cursor: pointer $Dark-Blue;
-      color: $Dark-Blue;
     }
 
     .contact__form__submit {
       padding: 20px;
       margin: 20px 0;
       font-size: 1.4rem;
-      background-color: $Custom-Red;
-      color: $Soft-Brown;
       border: none;
     }
   }

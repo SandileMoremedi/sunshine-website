@@ -1,94 +1,6 @@
 @import "../utils/variables";
 
 // Making the navigation responsive
-@media (min-width: 0) and (max-width: 699px) {
-  .nav {
-    position: relative;
-    padding: 20px 10px !important;
-
-    .navbar.open {
-      position: relative;
-      right: 60vw;
-      transition: right 0.6s ease-in-out;
-    }
-    .navbar.close {
-      position: relative;
-      right: 0 !important;
-      transition: right 0.6s ease-in-out;
-    }
-    .nav__linksAndButtons {
-      display: flex;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      flex-direction: column !important;
-      background-color: $Mustard;
-      margin: 0 !important;
-      padding: 0 !important;
-      height: 100vh;
-      justify-content: space-between !important;
-      width: 60vw;
-      right: 0;
-
-      ul {
-        display: flex;
-        flex-direction: column !important;
-        align-items: center;
-        margin: 0;
-        padding: 0;
-        li {
-          padding: 20px 0;
-        }
-      }
-
-      ul.open {
-        transition: right 1.2s ease-in-out;
-        right: 0;
-      }
-      ul.closed {
-        transition: right 1.2s ease-in-out;
-        right: 30vw;
-      }
-      .log {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 20px 0;
-      }
-
-      a {
-        margin: 0 !important;
-        padding: 0 !important;
-      }
-    }
-  }
-  .nav__linksAndButtons.open {
-    right: 0;
-    transition: right 0.6s ease-in-out;
-
-    border: 1px solid $Soft-Brown;
-  }
-  .nav__linksAndButtons.close {
-    right: -60vw;
-    transition: right 0.6s ease-in-out;
-  }
-
-  .ul__categories__list {
-    display: none !important;
-  }
-
-  .log__details__hover {
-    position: relative !important;
-    display: none;
-  }
-  .log__details {
-    &:hover {
-      .log__details__hover {
-        display: flex !important;
-      }
-    }
-  }
-}
 
 @media (min-width: 700px) {
   .nav {
@@ -114,9 +26,15 @@
     }
 
     .ul__categories {
+      position: relative;
       &:hover {
         .ul__categories__links {
           display: grid;
+          margin-top: 5px;
+          position: absolute;
+          grid-template-columns: repeat(4, 1fr);
+          top: 130%;
+          left: -125px;
         }
       }
     }

@@ -67,17 +67,17 @@ const Header = () => {
             <li className="ul__categories">
               <Link href="/categories">Categories</Link>
               <div className="ul__categories__links">
-                <Link href="/categories/dairy">Fruit & Veg</Link>
+                <Link href="/categories/dairy">Fruit</Link>
                 <Link href="/categories/dairy">Bakery</Link>
-                <Link href="/categories/dairy">Milk, Dairy & Eggs</Link>
-                <Link href="/categories/dairy">Meat, Poultry & Seafood</Link>
-                <Link href="/categories/dairy">Ready Meals, Deserts</Link>
+                <Link href="/categories/dairy">Dairy</Link>
+                <Link href="/categories/dairy">Meat</Link>
+                <Link href="/categories/dairy">Ready Meals</Link>
                 <Link href="/categories/dairy">Frozen Food</Link>
-                <Link href="/categories/dairy">Chocolate, Chips & Snacks</Link>
+                <Link href="/categories/dairy">Snack</Link>
                 <Link href="/categories/dairy">Beverages</Link>
                 <Link href="/categories/dairy">Alcohol</Link>
-                <Link href="/categories/dairy">Household & Cleaning</Link>
-                <Link href="/categories/dairy">Personal Care & Health</Link>
+                <Link href="/categories/dairy">Cleaning</Link>
+                <Link href="/categories/dairy">Health</Link>
                 <Link href="/categories/dairy">Baby</Link>
                 <Link href="/categories/dairy">Pet Care</Link>
               </div>
@@ -129,18 +129,9 @@ const Header = () => {
                 </div>
               </div>
             ) : (
-              <button
-                onClick={() => {
-                  signInWithPopup(getAuth(app), provider).then((result) => {
-                    dispatch({
-                      type: "LOGGED_IN",
-                      payload: result.user,
-                    });
-                  });
-                }}
-              >
+              <Link href="auth" className="loginButton">
                 Login
-              </button>
+              </Link>
             )}
           </div>
         </div>

@@ -3,7 +3,6 @@
 .modal {
   margin: 0 auto;
   width: clamp(30%, 300px, 90vw);
-  background-color: $Custom-Red;
   display: flex;
   border-radius: 20px;
   .modal__text {
@@ -17,15 +16,9 @@
     }
   }
   .modal__text__close {
-    background-color: $Custom-Red;
     border: none;
     margin-left: 20px;
     font-size: 1rem;
-    color: $Soft-Brown;
     border-radius: 50%;
-    &:hover {
-      background-color: $Soft-Brown;
-      color: $Custom-Red;
-    }
   }
 }

@@ -5,7 +5,6 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   text-align: center;
-  color: $Dark-Blue;
   width: 100%;
 
   h2 {
@@ -43,24 +42,10 @@
     }
 
     .edit {
-      color: $Dark-Blue;
-      background-color: white;
-      border: 1px solid $Dark-Blue;
       border-radius: 20px;
-      &:hover {
-        background-color: $Dark-Blue;
-        color: white;
-      }
     }
     .delete {
-      color: $Custom-Red;
-      background-color: white;
-      border: 1px solid $Custom-Red;
       border-radius: 20px;
-      &:hover {
-        background-color: $Custom-Red;
-        color: white;
-      }
     }
   }
 }

@@ -6,7 +6,6 @@
   gap: 30px;
 
   .card {
-    background-color: $Mustard;
     padding: 20px;
     border-radius: 20px;
     display: flex;
@@ -28,7 +27,6 @@
     }
     a {
       text-decoration: none;
-      color: currentColor;
 
       &:hover {
         text-decoration: underline;
@@ -45,10 +43,7 @@
         padding: 10px;
         text-decoration: none;
         text-align: center;
-        background-color: $Light-Orange;
         font-size: 1.3rem;
-        color: $Soft-Brown;
-        border: $Soft-Brown 1px solid;
         cursor: pointer;
       }
     }
