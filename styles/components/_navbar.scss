@@ -1,10 +1,19 @@
 @import "../utils/variables";
 
+header {
+  border-bottom: 3px solid $Text-Color-Secondary;
+}
+
+header {
+  z-index: 10000;
+}
+
 // Mobile
 @media (min-width: 0) and (max-width: 700px) {
   .nav__linksAndButtons.close {
     top: -1000%;
     transition: top 1.2s ease-in-out;
+    border-bottom: 3px solid yellow;
   }
 
   .nav__linksAndButtons {
