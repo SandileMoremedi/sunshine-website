@@ -7,6 +7,7 @@ import {
 import { FaGoogle } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { app } from "../firebaseConfig";
+
 import FormInputs from "../components/FormInputs";
 import Image from "next/image";
 const Authentication = () => {
@@ -14,6 +15,20 @@ const Authentication = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const provider = new GoogleAuthProvider();
+  const [loggingIn, setLoggingIn] = useState(false);
+  const handleChange = (type, e) => {
+    if (type == "email") {
+      setEmail(e.target.value);
+    }
+
+    if ((type = "text")) {
+      setName(e.target.value);
+    }
+
+    if ((type = "email")) {
+      setEmail(e.target.value);
+    }
+  };
 
   return (
     <>
@@ -30,9 +45,12 @@ const Authentication = () => {
               placeholder="e.g Sunshine Customer"
               id="name"
               name="Name and Surname:"
-              setName={setName}
+              inputType="name"
+              type="text"
               pattern="^[A-Za-z0-9]{4,20}$"
               errorMessage="Must contain at least 4 to 20 characters"
+              handleChange={handleChange}
+              label="Please Add Your Name and Surname"
             />
             <FormInputs
               placeholder="e.g email@gmail.com"
@@ -41,6 +59,10 @@ const Authentication = () => {
               setEmail={setEmail}
               pattern="^[A-Za-z0-9]{4,20}$"
               errorMessage="Must contain at least 4 to 20 characters"
+              inputType="email"
+              type="email"
+              handleChange={handleChange}
+              label="Please add your email"
             />
             <FormInputs
               placeholder="e.g Book12567"
@@ -48,7 +70,11 @@ const Authentication = () => {
               name="Password:"
               setPassword={setPassword}
               pattern="^[A-Za-z0-9]{4,20}$"
+              inputType="password"
               errorMessage="Must contain at least 4 to 20 characters"
+              type="password"
+              handleChange={handleChange}
+              label="please add a password"
             />
             <button className="submit" type="submit">
               Submit
@@ -62,8 +88,12 @@ const Authentication = () => {
         </div>
         <button
           className="google"
+          disabled={loggingIn ? true : false}
           onClick={async () => {
-            await signInWithPopup(getAuth(app), provider);
+            setLoggingIn(true);
+            await signInWithPopup(getAuth(app), provider)
+              .then(() => setLoggingIn(true), (window.location = "/"))
+              .catch((err) => console.log(err));
           }}
         >
           <Image

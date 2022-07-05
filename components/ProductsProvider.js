@@ -10,6 +10,8 @@ const initialValues = {
   user: null,
   editState: false,
   addingProduct: false,
+  email: "",
+  name: "",
 };
 
 const ProductsContext = createContext(initialValues);

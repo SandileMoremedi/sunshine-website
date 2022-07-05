@@ -17,7 +17,6 @@ import { app } from "../firebaseConfig";
 const Header = () => {
   const [navbar, setNavbar] = useState(false);
   const { state, dispatch } = useContext(ProductsContext);
-  const provider = new GoogleAuthProvider();
 
   useEffect(() => {
     onAuthStateChanged(getAuth(app), (authUser) => {
@@ -103,14 +102,12 @@ const Header = () => {
                 <div className="image">
                   <Image
                     src={state.user.photoURL}
-                    layout="fill"
+                    width="35"
+                    height={35}
                     objectFit="cover"
                     alt="Profile"
                   />
                 </div>
-                <button>
-                  <IoIosArrowDown />
-                </button>
                 <div className="log__details__hover">
                   <button
                     onClick={() =>
@@ -121,10 +118,8 @@ const Header = () => {
                       })
                     }
                   >
-                    <span>
-                      <FaExclamationCircle />
-                      Logout
-                    </span>
+                    <FaExclamationCircle />
+                    <span>Logout</span>
                   </button>
                 </div>
               </div>
