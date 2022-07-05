@@ -6,9 +6,9 @@
 }
 .loginPage {
   display: flex;
-  min-height: 60vh;
   align-items: center;
   justify-content: center;
+  margin-bottom: 10px;
 
   .loginPage__form {
     display: flex;
@@ -30,4 +30,14 @@
       font-size: 1.4rem;
     }
   }
+}
+
+.google {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background-color: $Main-Background-Color !important;
+  color: $Text-Color-Primary !important;
 }

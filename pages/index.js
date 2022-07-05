@@ -47,20 +47,22 @@ export default function Home({ data }) {
         <div className="searchBar">
           <label htmlFor="searchbar">
             <FaSearch />
+            <input
+              type="search"
+              id="searchbar"
+              placeholder="Search For Items"
+              aria-label="Search for items"
+              onChange={(e) => {
+                setQuery(e.target.value);
+              }}
+            />
           </label>
-          <input
-            type="search"
-            id="searchbar"
-            onChange={(e) => {
-              setQuery(e.target.value);
-            }}
-          />
         </div>
         <Modal />
         <div className="cards">
           {data &&
             data
-              .filter((item) => item.title.includes(query))
+              .filter((item) => item.title.toLowerCase().includes(String(query).toLowerCase()))
               .map((card, index) => <CustomImage data={card} key={index} />)}
         </div>
       </main>

@@ -8,6 +8,7 @@ import { FaGoogle } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { app } from "../firebaseConfig";
 import FormInputs from "../components/FormInputs";
+import Image from "next/image";
 const Authentication = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -61,11 +62,17 @@ const Authentication = () => {
         </div>
         <button
           className="google"
-          onClick={() => {
-            signInWithPopup(getAuth(app), provider);
+          onClick={async () => {
+            await signInWithPopup(getAuth(app), provider);
           }}
         >
-          Login with Google
+          <Image
+            src="/Google__G__Logo.svg.png"
+            alt="Google Logo"
+            height="25"
+            width="25"
+          />
+          <span>Login with Google</span>
         </button>
       </div>
     </>

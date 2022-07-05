@@ -23,7 +23,7 @@ const CustomImage = ({ data }) => {
           objectFit="cover"
         />
       </div>
-      <h2>{data.title}</h2>
+      <h2>{String(data.title).slice(0, 25)}</h2>
       <span>{`Quantity Available: ${data.quantity}`}</span>
       <span>{`Price: R${data.price}`}</span>
       <div className="card__buttons">

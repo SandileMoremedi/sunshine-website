@@ -211,7 +211,7 @@ body {
 // 9. Authentication
 
 .loginOptions {
-  background-color: $Main-Background-Color;
+  background-color: $Grid-Items-Color;
   width: max-content;
   margin: 20px auto;
   padding: 20px;
@@ -236,24 +236,24 @@ body {
     gap: 10px;
 
     .aside-left {
-      background-color: grey;
+      background-color: $Text-Color-Primary;
       width: 100px;
       height: 3px;
     }
     .aside-right {
-      background-color: grey;
+      background-color: $Text-Color-Primary;
       width: 100px;
       height: 3px;
     }
   }
 
   .orBtn {
-    color: grey;
+    color: $Text-Color-Primary;
   }
 }
 .loginPage {
   .submit {
-    background-color: $Grid-Items-Color;
+    background-color: $Main-Background-Color;
     width: 100%;
     margin-top: 20px;
     font-size: 1.7rem;
@@ -261,10 +261,11 @@ body {
     border-radius: 20px;
     border: none;
     cursor: pointer;
+    border: 2px solid $Text-Color-Primary;
   }
 
   label {
-    color: $Text-Color-Primary;
+    color: $Main-Background-Color;
   }
   .loginPage__form {
     button {

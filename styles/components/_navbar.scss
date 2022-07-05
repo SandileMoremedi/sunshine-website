@@ -1,7 +1,9 @@
 @import "../utils/variables";
 
 header {
-  border-bottom: 3px solid $Text-Color-Secondary;
+  span a {
+    text-decoration: none;
+  }
 }
 
 header {
@@ -11,12 +13,11 @@ header {
 // Mobile
 @media (min-width: 0) and (max-width: 700px) {
   .nav__linksAndButtons.close {
-    top: -1000%;
+    top: -1500%;
     transition: top 1.2s ease-in-out;
-    border-bottom: 3px solid yellow;
   }
 
-  .nav__linksAndButtons {
+  .nav__linksAndButtons.open {
     top: 100%;
     transition: top 1.2s ease-in-out;
   }
@@ -73,10 +74,8 @@ header {
 
       a {
         text-decoration: none;
-        background-color: $Tertiary-Color;
         padding: 10px 20px;
         border-radius: 20px;
-        color: $Text-Color-Primary;
         font-size: 1.4rem;
       }
     }
@@ -144,10 +143,8 @@ header {
       }
 
       .log {
-        background-color: $Grid-Items-Color;
         padding: 10px 20px;
         border-radius: 20px;
-
         a {
           text-decoration: none;
         }
