@@ -1,11 +1,16 @@
 import Image from "next/image";
 import { FaTrash } from "react-icons/fa";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ProductsContext } from "../components/ProductsProvider";
 import Head from "next/head";
 
 export default function Checkout() {
   const { state, dispatch } = useContext(ProductsContext);
+  const [items, setItem] = useState([]);
+  useEffect(() => {
+    const list = JSON.parse(window.localStorage.getItem("items"));
+    setItem(list);
+  }, []);
 
   return (
     <>
@@ -23,12 +28,12 @@ export default function Checkout() {
           <button>Order</button>
         </aside>
         <div className="checkout__list">
-          {state.products !== 0 ? (
-            state.listItems.map((product, index) => (
+          {items.length !== 0 ? (
+            items.map((product, index) => (
               <div className="checkout__item" key={index}>
                 <div className="image">
                   <Image
-                    src={product.image}
+                    src={product.ProductImage}
                     objectFit="contain"
                     alt="Product Picture"
                     width={150}

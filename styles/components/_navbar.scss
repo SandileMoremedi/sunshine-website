@@ -10,6 +10,22 @@ header {
   z-index: 10000;
 }
 
+.ul__link {
+  position: relative;
+  .ul__checkout__icon {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+  }
+}
+
 // Mobile
 @media (min-width: 0) and (max-width: 700px) {
   .nav__linksAndButtons.close {

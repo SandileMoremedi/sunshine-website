@@ -17,7 +17,7 @@ import { app } from "../firebaseConfig";
 const Header = () => {
   const [navbar, setNavbar] = useState(false);
   const { state, dispatch } = useContext(ProductsContext);
-
+  const [items, setItems] = useState([]);
   useEffect(() => {
     onAuthStateChanged(getAuth(app), (authUser) => {
       if (authUser) {
@@ -32,6 +32,10 @@ const Header = () => {
       }
     });
   }, [dispatch]);
+
+  useEffect(() => {
+    setItems(JSON.parse(window.localStorage.getItem("items")));
+  }, []);
 
   return (
     <header className="header">
@@ -88,8 +92,8 @@ const Header = () => {
               <Link href="/checkout" className="ul__checkout">
                 Checkout
               </Link>
-              {state.products !== 0 && (
-                <span className="ul__checkout__icon">{state.products}</span>
+              {items.length !== 0 && (
+                <span className="ul__checkout__icon">{items.length}</span>
               )}
             </li>
             <li>

@@ -12,6 +12,26 @@ const CustomImage = ({ data }) => {
       });
     }, 2000);
   }
+  const [itemPicked, setItemPicked] = useState([]);
+
+  // Checking whether the localStorage has any items
+  useEffect(() => {
+    const list = JSON.parse(window.localStorage.getItem("items"));
+    if (list === null) {
+      const arr = [];
+      window.localStorage.setItem("items", JSON.stringify(arr));
+    }
+  }, []);
+  const addProduct = async (para) => {
+    const list = JSON.parse(window.localStorage.getItem("items"));
+
+    if (list.length === 0) {
+      window.localStorage.setItem("items", JSON.stringify([para]));
+    } else {
+      const newList = [...list, para];
+      window.localStorage.setItem("items", JSON.stringify(newList));
+    }
+  };
 
   return (
     <div className="card">
@@ -42,6 +62,7 @@ const CustomImage = ({ data }) => {
               },
             });
             timer();
+            addProduct(data);
           }}
         >
           Add To Cart
