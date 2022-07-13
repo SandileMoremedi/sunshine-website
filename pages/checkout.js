@@ -1,16 +1,25 @@
+// NextJS Imports
 import Image from "next/image";
-import { FaTrash } from "react-icons/fa";
-import { useContext, useEffect, useState } from "react";
-import { ProductsContext } from "../components/ProductsProvider";
 import Head from "next/head";
+// React Imports
+import { useContext, useEffect, useState } from "react";
+// Packages Imports
+import { FaTrash } from "react-icons/fa";
+// Components Imports
+import { ProductsContext } from "../components/ProductsProvider";
 
 export default function Checkout() {
   const { state, dispatch } = useContext(ProductsContext);
+  // State for iterating through the localStorage items
   const [items, setItem] = useState([]);
+  // State for checking the total of the items picked
+  const [total, setTotal] = useState(0);
+  const [arr, setArr] = useState([]);
   useEffect(() => {
     const list = JSON.parse(window.localStorage.getItem("items"));
     setItem(list);
   }, []);
+  // TASK: Add the total and make fuctions for deleting and adding items
 
   return (
     <>
@@ -23,7 +32,7 @@ export default function Checkout() {
           <h2>Products Summary</h2>
           <div className="aside__heading">
             <h4>Total:</h4>
-            <span>R{state.total}</span>
+            <span>R{total}</span>
           </div>
           <button>Order</button>
         </aside>
@@ -65,7 +74,7 @@ export default function Checkout() {
                       >
                         -
                       </button>
-                      <span>{product.quantityWanted}</span>
+                      <span>{product.number}</span>
                       <button
                         type="button"
                         onClick={() => {
@@ -90,9 +99,12 @@ export default function Checkout() {
                 <button
                   className="cancel"
                   onClick={() => {
-                    dispatch({
-                      type: "REMOVED_AN_ITEM",
-                      payload: product,
+                    const pickedItems = JSON.parse(
+                      window.localStorage.getItem("items")
+                    );
+                    // const index = pickedItems.indexOf(product._id);
+                    pickedItems.map((thing) => {
+                      console.log(thing);
                     });
                   }}
                 >
@@ -110,24 +122,3 @@ export default function Checkout() {
     </>
   );
 }
-
-// export const getStaticPaths = async context => {
-
-//   const p = await sanityconfig.fetch(`*[_type == "products" && defined()]`)
-//   return {
-//     props: {},
-//   };
-// };
-
-// export const getStaticProps = async () => {
-//   const data = await sanityconfig.fetch(
-//     `
-//     *[_type == "products"]{_id, title, slug, "ProductImage": mainImage.asset->url, price}
-//     `
-//   );
-//   return {
-//     props: {
-//       data,
-//     },
-//   };
-// };
