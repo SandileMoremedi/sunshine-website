@@ -39,6 +39,10 @@ body {
       border: none;
       color: $Text-Color-Primary;
       border: 2px solid transparent;
+      &:disabled {
+        background-color: $Text-Color-Secondary !important;
+        color: $Main-Background-Color;
+      }
 
       &:hover {
         border: 2px solid $Text-Color-Primary;

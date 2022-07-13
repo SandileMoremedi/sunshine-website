@@ -9,17 +9,19 @@ import { FaTrash } from "react-icons/fa";
 import { ProductsContext } from "../components/ProductsProvider";
 
 export default function Checkout() {
-  const { state, dispatch } = useContext(ProductsContext);
+  const { dispatch } = useContext(ProductsContext);
   // State for iterating through the localStorage items
   const [items, setItem] = useState([]);
   // State for checking the total of the items picked
   const [total, setTotal] = useState(0);
-  const [arr, setArr] = useState([]);
+  if (typeof window !== "undefined") {
+    var list = JSON.parse(window.localStorage.getItem("items"));
+  }
+
   useEffect(() => {
-    const list = JSON.parse(window.localStorage.getItem("items"));
     setItem(list);
   }, []);
-  // TASK: Add the total and make fuctions for deleting and adding items
+  // TASKS: Add the total and make functions for deleting and adding items
 
   return (
     <>
@@ -59,17 +61,26 @@ export default function Checkout() {
                       <button
                         type="button"
                         onClick={() => {
-                          dispatch({
-                            type: "ADD_PRODUCT",
-                            payload: {
-                              title: product.title,
-                              slug: product.slug.current,
-                              id: product._id,
-                              image: product.ProductImage,
-                              price: product.price,
-                              quantityWanted: product.quantityWanted--,
-                            },
+                          const list = JSON.parse(
+                            window.localStorage.getItem("items")
+                          );
+                          const newArr = list.map((item) => {
+                            if (item._id === product._id) {
+                              return {
+                                ...item,
+                                number: item.number - 1,
+                              };
+                            } else {
+                              return { ...item };
+                            }
                           });
+                          window.localStorage.setItem(
+                            "items",
+                            JSON.stringify(newArr)
+                          );
+                          setItem(
+                            JSON.parse(window.localStorage.getItem("items"))
+                          );
                         }}
                       >
                         -
@@ -78,17 +89,26 @@ export default function Checkout() {
                       <button
                         type="button"
                         onClick={() => {
-                          dispatch({
-                            type: "MINUS_PRODUCT",
-                            payload: {
-                              title: product.title,
-                              slug: product.slug.current,
-                              id: product._id,
-                              image: product.ProductImage,
-                              price: product.price,
-                              quantityWanted: product.quantityWanted++,
-                            },
+                          const list = JSON.parse(
+                            window.localStorage.getItem("items")
+                          );
+                          const newArr = list.map((item) => {
+                            if (item._id === product._id) {
+                              return {
+                                ...item,
+                                number: item.number + 1,
+                              };
+                            } else {
+                              return { ...item };
+                            }
                           });
+                          window.localStorage.setItem(
+                            "items",
+                            JSON.stringify(newArr)
+                          );
+                          setItem(
+                            JSON.parse(window.localStorage.getItem("items"))
+                          );
                         }}
                       >
                         +
@@ -99,13 +119,21 @@ export default function Checkout() {
                 <button
                   className="cancel"
                   onClick={() => {
-                    const pickedItems = JSON.parse(
+                    const list = JSON.parse(
                       window.localStorage.getItem("items")
                     );
-                    // const index = pickedItems.indexOf(product._id);
-                    pickedItems.map((thing) => {
-                      console.log(thing);
+                    const newArr = list.filter((item) => {
+                      if (product._id === item._id) {
+                        return;
+                      } else {
+                        return { ...item };
+                      }
                     });
+                    window.localStorage.setItem(
+                      "items",
+                      JSON.stringify(newArr)
+                    );
+                    setItem(JSON.parse(window.localStorage.getItem("items")));
                   }}
                 >
                   <FaTrash />

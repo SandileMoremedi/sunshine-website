@@ -22,7 +22,6 @@ import { app } from "../firebaseConfig";
 
 const Dashboard = ({ data, users }) => {
   const [menu, setMenu] = useState("dashboard");
-  console.log(users);
   //TODO: add the firebase config details in the next.config.js file
 
   return (

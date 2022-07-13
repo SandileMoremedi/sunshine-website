@@ -7,6 +7,7 @@ import { useContext, useState, useEffect } from "react";
 import { ProductsContext } from "./ProductsProvider";
 
 const CustomImage = ({ data }) => {
+  const [clicked, setClicked] = useState(false);
   const { dispatch, state } = useContext(ProductsContext);
   // This timer function is for closing the pop up when adding an item
   async function timer() {
@@ -74,21 +75,13 @@ const CustomImage = ({ data }) => {
         <button
           className="card__buttons__add"
           onClick={() => {
-            dispatch({
-              type: "ADDED_AN_ITEM_TO_CART",
-              payload: {
-                title: data.title,
-                slug: data.slug.current,
-                id: data._id,
-                image: data.ProductImage,
-                price: data.price,
-                quantityWanted: 1,
-              },
-            });
-
-            timer();
-            addProduct(data);
+            if (!clicked) {
+              timer();
+              addProduct(data);
+              setClicked(true);
+            }
           }}
+          disabled={clicked}
         >
           Add To Cart
         </button>

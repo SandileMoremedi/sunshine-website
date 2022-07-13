@@ -1,4 +1,7 @@
 @import "../utils/variables";
+.addProducts {
+  margin: 20px 0;
+}
 .dashboard {
   display: flex;
   gap: 30px;
@@ -16,6 +19,8 @@
     flex-direction: column;
     gap: 20px;
     align-items: center;
+    position: sticky;
+    top: 0;
     button {
       padding: 10px;
       border: none;

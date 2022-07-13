@@ -34,7 +34,9 @@ const Products = ({ data }) => {
       <div className="products__grid">
         {data.length !== 0 ? (
           data
-            .filter((item) => item.title.includes(query))
+            .filter((item) =>
+              item.title.toLowerCase().includes(String(query).toLowerCase())
+            )
             .map((product, index) => (
               <ProductsComponent key={index} products={product} />
             ))
