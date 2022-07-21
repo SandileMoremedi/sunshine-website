@@ -34,7 +34,9 @@ const Header = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    setItems(JSON.parse(window.localStorage.getItem("items")));
+    if (window.localStorage.getItem("items")) {
+      setItems(JSON.parse(window.localStorage.getItem("items")));
+    }
   }, []);
 
   return (

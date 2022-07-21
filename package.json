@@ -24,7 +24,6 @@
     "react-dom": "18.1.0",
     "react-draft-wysiwyg": "^1.14.7",
     "react-form": "^4.0.1",
-    "react-hook-form": "^7.33.1",
     "react-icons": "^4.3.1",
     "recharts": "^2.1.10",
     "sass": "^1.51.0"
