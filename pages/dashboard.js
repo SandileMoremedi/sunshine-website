@@ -117,6 +117,15 @@ export async function getServerSideProps() {
     });
   });
 
+  if (!data) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
   return {
     props: {
       data,
