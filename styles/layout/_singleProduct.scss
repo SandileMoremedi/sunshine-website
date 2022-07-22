@@ -1,0 +1,108 @@
+@import "../utils/variables";
+.product {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+
+  .left,
+  .right {
+    flex: 1;
+    width: 100%;
+  }
+  .bottomImages {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    .bg-active {
+      position: relative;
+    }
+
+    .bg-active::before {
+      content: "";
+      width: 100%;
+      height: 100px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: black;
+      opacity: 0.5;
+      z-index: 20;
+    }
+
+    .bottom-image {
+      width: 100%;
+      height: 100px;
+      position: relative;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .topImage {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 30px;
+    .off {
+      display: none;
+    }
+    .active {
+      background-color: $Main-Background-Color;
+      background-blend-mode: color;
+    }
+  }
+  .left {
+    display: flex;
+    flex-direction: column;
+  }
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    height: 100%;
+
+    .add-process {
+      display: flex;
+      justify-content: space-between;
+      .add {
+        display: flex;
+        border: 1px solid $Grid-Items-Color;
+        width: 40%;
+        button {
+          flex: 2;
+        }
+        span {
+          flex: 2;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      .process {
+        background-color: $Grid-Items-Color;
+        color: $Main-Background-Color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 20px;
+        font-size: 1.3rem;
+        svg {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 700px) {
+  .right .add-process {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .process {
+      border-radius: 30px;
+    }
+  }
+}

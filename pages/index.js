@@ -17,6 +17,8 @@ import Modal from "../components/Modal";
 export default function Home({ data }) {
   const [query, setQuery] = useState("");
   const { state, dispatch } = useContext(ProductsContext);
+  const [popup, setPopup] = useState(false);
+  const [count, setCount] = useState(0);
   return (
     <>
       <Head>
@@ -26,11 +28,11 @@ export default function Home({ data }) {
           content="This is the official e-commerce website of Sunshine Cash and Carry"
         />
       </Head>
-      {state.popup && (
+      {popup && (
         <Modal>
           <span className="modal__text">
             <FaCheckCircle className="modal__text__icon" />
-            {`${state.products} added to cart`}
+            {`${count} added to cart`}
             <button
               className="modal__text__close"
               onClick={() => {
@@ -62,8 +64,17 @@ export default function Home({ data }) {
         <div className="cards">
           {data &&
             data
-              .filter((item) => item.title.toLowerCase().includes(String(query).toLowerCase()))
-              .map((card, index) => <CustomImage data={card} key={index} />)}
+              .filter((item) =>
+                item.title.toLowerCase().includes(String(query).toLowerCase())
+              )
+              .map((card, index) => (
+                <CustomImage
+                  data={card}
+                  key={index}
+                  setPopup={setPopup}
+                  setCount={setCount}
+                />
+              ))}
         </div>
       </main>
     </>

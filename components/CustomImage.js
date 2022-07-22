@@ -6,15 +6,13 @@ import { useContext, useState, useEffect } from "react";
 // Context Imports
 import { ProductsContext } from "./ProductsProvider";
 
-const CustomImage = ({ data }) => {
+const CustomImage = ({ data, setPopup, setCount }) => {
   const [clicked, setClicked] = useState(false);
   const { dispatch, state } = useContext(ProductsContext);
   // This timer function is for closing the pop up when adding an item
   async function timer() {
     setTimeout(() => {
-      dispatch({
-        type: "POPUP_CLOSE",
-      });
+      setPopup(false);
     }, 2000);
   }
 
@@ -77,6 +75,8 @@ const CustomImage = ({ data }) => {
           onClick={() => {
             if (!clicked) {
               timer();
+              setCount((prev) => prev + 1);
+              setPopup(true);
               addProduct(data);
               setClicked(true);
             }
