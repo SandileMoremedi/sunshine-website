@@ -1,6 +1,5 @@
 // NextJS Imports
 import Image from "next/image";
-import Link from "next/link";
 //React Imports & Libraries
 import { useEffect, useState } from "react";
 import SanityBlockContent from "@sanity/block-content-to-react";
@@ -10,8 +9,6 @@ import sanityconfig from "../../sanityconfig";
 //Components Imports
 
 const Product = ({ product }) => {
-  console.log(product);
-
   const [pickedImage, setPickedImage] = useState(null);
   useEffect(() => {
     setPickedImage(product.images[0]);
@@ -71,26 +68,27 @@ const Product = ({ product }) => {
           )}
         </div>
         <div className="bottomImages">
-          {product.images.map((image, index) => (
-            <div
-              className={
-                pickedImage === image
-                  ? "bg-active bottom-image"
-                  : "bottom-image"
-              }
-              key={index}
-              onClick={() => {
-                setPickedImage(image);
-              }}
-            >
-              <Image
-                src={image}
-                alt="image"
-                layout="fill"
-                objectFit="contain"
-              />
-            </div>
-          ))}
+          {product &&
+            product.images.map((image, index) => (
+              <div
+                className={
+                  pickedImage === image
+                    ? "bg-active bottom-image"
+                    : "bottom-image"
+                }
+                key={index}
+                onClick={() => {
+                  setPickedImage(image);
+                }}
+              >
+                <Image
+                  src={image}
+                  alt="image"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
+            ))}
         </div>
       </div>
       <div className="right">
