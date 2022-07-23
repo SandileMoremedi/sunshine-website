@@ -2,16 +2,20 @@
 import Image from "next/image";
 import Link from "next/link";
 //React Imports & Libraries
-import { useContext } from "react";
+import { useEffect, useState } from "react";
 import SanityBlockContent from "@sanity/block-content-to-react";
+import { FaCartPlus } from "react-icons/fa";
 // Sanity Imports
 import sanityconfig from "../../sanityconfig";
 //Components Imports
-import { ProductsContext } from "../../components/ProductsProvider";
-
 
 const Product = ({ product }) => {
-  const { dispatch } = useContext(ProductsContext);
+  console.log(product);
+
+  const [pickedImage, setPickedImage] = useState(null);
+  useEffect(() => {
+    setPickedImage(product.images[0]);
+  }, []);
   const serializers = {
     types: {
       code: (props) => (
@@ -23,47 +27,87 @@ const Product = ({ product }) => {
   };
   return (
     <div className="product">
-      {product && (
-        <>
-          <div className="left">
-            <div className="image">
+      <div className="left">
+        <div className="topImage">
+          {pickedImage && (
+            <>
               <Image
-                src={product.productImage}
+                src={pickedImage}
+                alt="Product Image"
                 layout="fill"
-                alt="Product"
-                objectFit="cover"
+                objectFit="contain"
+                objectPosition="center"
+                className={pickedImage === product.images[0] ? "active" : "off"}
+                onClick={() => setPickedImage(product.images[0])}
               />
-            </div>
-          </div>
-          <div className="right">
-            <h1>{product.title}</h1>
-            <SanityBlockContent
-              blocks={product.body}
-              serializers={serializers}
-            />
-            <span>{`Price: R${product.price}`}</span>
-            <span>{`Quantity Available: ${product.quantity}`}</span>
-
-            <button
+              <Image
+                src={pickedImage}
+                alt="Product Image"
+                layout="fill"
+                objectFit="contain"
+                objectPosition="center"
+                className={pickedImage === product.images[1] ? "active" : "off"}
+                onClick={() => setPickedImage(product.images[1])}
+              />
+              <Image
+                src={pickedImage}
+                alt="Product Image"
+                layout="fill"
+                objectFit="contain"
+                objectPosition="center"
+                className={pickedImage === product.images[2] ? "active" : "off"}
+                onClick={() => setPickedImage(product.images[2])}
+              />
+              <Image
+                src={pickedImage}
+                alt="Product Image"
+                layout="fill"
+                objectFit="contain"
+                objectPosition="center"
+                className={pickedImage === product.images[3] ? "active" : "off"}
+                onClick={() => setPickedImage(product.images[3])}
+              />
+            </>
+          )}
+        </div>
+        <div className="bottomImages">
+          {product.images.map((image, index) => (
+            <div
+              className={
+                pickedImage === image
+                  ? "bg-active bottom-image"
+                  : "bottom-image"
+              }
+              key={index}
               onClick={() => {
-                dispatch({
-                  type: "ADDED_AN_ITEM_TO_CART",
-                  payload: {
-                    title: product.title,
-                    slug: product.slug.current,
-                    id: product._id,
-                    image: product.productImage,
-                    price: product.price,
-                    body: product.body,
-                  },
-                });
+                setPickedImage(image);
               }}
             >
-              Add To Cart
-            </button>
+              <Image
+                src={image}
+                alt="image"
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="right">
+        <h1>{product.title}</h1>
+        <SanityBlockContent blocks={product.body} serializers={serializers} />
+        <h2>R300</h2>
+        <div className="add-process">
+          <div className="add">
+            <button>-</button>
+            <span className="number">5</span>
+            <button>+</button>
           </div>
-        </>
-      )}
+          <button className="process">
+            <FaCartPlus /> Process To Checkout
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
@@ -84,7 +128,7 @@ export async function getStaticProps(context) {
   const { slug = "" } = context.params;
   const product = await sanityconfig.fetch(
     `
-    *[_type == "products" && slug.current == $slug][0]{slug, "productImage": mainImage.asset->url, title, price, quantity, body}
+    *[_type == "products" && slug.current == $slug][0]{slug, "productImage": mainImage.asset->url, title, price, quantity, body, "images": gridImages[].asset -> url }
   `,
     { slug }
   );

@@ -5,6 +5,7 @@ import Image from "next/image";
 // React Imports & Libraries
 import { useState, useContext, useEffect } from "react";
 import { FaCheckCircle, FaSearch } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 
 //Sanity Imports
 import sanityconfig from "../sanityconfig";
@@ -61,21 +62,24 @@ export default function Home({ data }) {
           </label>
         </div>
         <Modal />
-        <div className="cards">
-          {data &&
-            data
-              .filter((item) =>
-                item.title.toLowerCase().includes(String(query).toLowerCase())
-              )
-              .map((card, index) => (
-                <CustomImage
-                  data={card}
-                  key={index}
-                  setPopup={setPopup}
-                  setCount={setCount}
-                />
-              ))}
-        </div>
+
+        <motion.div className="cards" layout>
+          <AnimatePresence>
+            {data &&
+              data
+                .filter((item) =>
+                  item.title.toLowerCase().includes(String(query).toLowerCase())
+                )
+                .map((card, index) => (
+                  <CustomImage
+                    data={card}
+                    key={index}
+                    setPopup={setPopup}
+                    setCount={setCount}
+                  />
+                ))}
+          </AnimatePresence>
+        </motion.div>
       </main>
     </>
   );

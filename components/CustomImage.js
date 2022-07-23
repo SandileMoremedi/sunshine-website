@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 //React Imports
 import { useContext, useState, useEffect } from "react";
+import { motion } from "framer-motion";
 // Context Imports
 import { ProductsContext } from "./ProductsProvider";
 
@@ -57,7 +58,13 @@ const CustomImage = ({ data, setPopup, setCount }) => {
   };
 
   return (
-    <div className="card">
+    <motion.div
+      layout
+      animate={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, x: -50 }}
+      exit={{ opacity: 0, x: -50 }}
+      className="card"
+    >
       <div className="card__image">
         <Image
           src={data.ProductImage}
@@ -87,7 +94,7 @@ const CustomImage = ({ data, setPopup, setCount }) => {
         </button>
         <Link href={`/products/${data.slug.current}`}>Read More</Link>
       </div>
-    </div>
+    </motion.div>
   );
 };
 export default CustomImage;

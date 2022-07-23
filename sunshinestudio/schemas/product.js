@@ -28,6 +28,12 @@ export default {
       },
     },
     {
+      name: "gridImages",
+      title: "Grid Images",
+      type: "array",
+      of: [{ type: "image" }],
+    },
+    {
       title: "Category",
       name: "category",
       type: "reference",
