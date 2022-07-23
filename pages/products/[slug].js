@@ -91,21 +91,23 @@ const Product = ({ product }) => {
             ))}
         </div>
       </div>
-      <div className="right">
-        <h1>{product.title}</h1>
-        <SanityBlockContent blocks={product.body} serializers={serializers} />
-        <h2>R300</h2>
-        <div className="add-process">
-          <div className="add">
-            <button>-</button>
-            <span className="number">5</span>
-            <button>+</button>
+      {product && (
+        <div className="right">
+          <h1>{product.title}</h1>
+          <SanityBlockContent blocks={product.body} serializers={serializers} />
+          <h2>R{product.price}</h2>
+          <div className="add-process">
+            <div className="add">
+              <button>-</button>
+              <span className="number">5</span>
+              <button>+</button>
+            </div>
+            <button className="process">
+              <FaCartPlus /> Process To Checkout
+            </button>
           </div>
-          <button className="process">
-            <FaCartPlus /> Process To Checkout
-          </button>
         </div>
-      </div>
+      )}
     </div>
   );
 };
